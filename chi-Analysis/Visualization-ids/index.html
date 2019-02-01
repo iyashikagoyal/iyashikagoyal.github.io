@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Snowflakes</title>
+<meta charset=”utf-8″ />
+
+<meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <script type='text/javascript' src='js/moment.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
+    <script type='text/javascript' src='http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js'></script>
+
+</head>
+
+
+<body>
+
+    <div class="home">
+      <a href="https://cs418datascience.wixsite.com/mysite"><img src="images/house-outline-black.png" alt="" height="32" width="32"></a>
+    </div>
+    <h1 id="mainTitle">75&degF with a Chance of Snow</h1>
+    <h3 id="subtitle">Data Science Project Visualizations</h3>
+    <h4 id="footer">Team Snowflakes</h4>
+    <p id="members">Yashika Goyal | Keshav | Jaspreet Kaur Sohal | Santhosh</p>
+
+    <hr>
+
+    <div class="links">
+        <a href="restaurants.html">Restaurants Visualization</a>
+    </div>
+
+    <hr>
+    <h5 class="center">Crime Distribution</h5>
+    <div id="wrapper">
+
+        <div id="map">
+          <div class="legend">
+            <img src="images/legendMap.png" height="156" width="150">
+          </div>
+        </div>
+        <div id="chart1">
+            <canvas id="q1Chart" width="100"></canvas>
+        </div>
+        <div id="mapTwo">
+          <div class="legend">
+            <img src="images/legendMapTwo.png" height="187" width="150">
+          </div>
+        </div>
+        <div id="chart2">
+            <canvas id="q10Chart" width="100"></canvas>
+        </div>
+    </div>
+
+
+
+    <h4 class="center">Crime by Time</h4>
+    <div style="display: flex; justify-content: center;" class="imgContainer">
+        <img src="images/topCrimesByYear.png" height="482" width="811">
+        <img src="images/topCrimesTrend.png" height="468" width="700">
+    </div>
+
+    <h4 class="center">Crime by Temperature and ZipCodes</h4>
+    <div style="display: flex; justify-content: center;" class="imgContainer">
+        <img src="images/crimeWeather.png" height="311" width="800">
+        <img src="images/crime_zipcode.png" height="302" width="800">
+    </div>
+
+    <h4 class="center">Crime occurrence by day of the week and community</h4>
+    <div style="display: flex; justify-content: center;" class="imgContainer">
+        <img src="images/crimeDayOfWeek.png" height="475" width="660">
+        <img src="images/crime-community.png" height="331" width="547">
+    </div>
+
+
+    <!--<hr>-->
+
+    <!--<h4 id="footer">Team Snowflakes</h4>-->
+    <!--<p id="members">Yashika Goyal | Keshav | Jaspreet Kaur Sohal | Santhosh</p>-->
+
+    <script type='text/javascript' src='js/leaflet-map.js'></script>
+    <!-- <script type='text/javascript' src='js/query8.js'></script> -->
+    <!-- <script type='text/javascript' src='js/query4.js'></script> -->
+    <script type='text/javascript' src='js/mapTwo.js'></script>
+
+</body>
+</html>

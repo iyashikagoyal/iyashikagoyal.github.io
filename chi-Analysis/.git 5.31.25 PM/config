@@ -1,0 +1,18 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = https://github.com/ikmalpani/cs418-data-science.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[lfs "https://github.com/ikmalpani/cs418-data-science.git/info/lfs"]
+	access = basic
+[branch "biz_via"]
+	remote = origin
+	merge = refs/heads/biz_via
