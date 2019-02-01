@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CS594 HW02</title>
+    <link rel="stylesheet" type="text/css" href="_/base.css">
+<style>
+
+body {
+  font: 12px sans-serif;
+}
+
+path {
+  stroke-width: 1px;
+  stroke: white;
+  fill: #f0f0f0;
+  cursor: pointer;
+}
+
+path:hover, path.highlighted {
+  fill: #fef0d9;
+}
+
+div.tooltip {
+  position: absolute;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  font-weight: bold;
+  padding: 4px 8px;
+  display: none;
+}
+
+</style>
+<body>
+
+<h1 style="text-align: center; font-size: 40px">Gun Deaths in US</h1>
+<div style="position: relative;
+  top: 80px;
+  left: 100px;
+
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;">
+<form method="get">
+
+    City: <input id="cityInput" type="text" name="firstname"><br></br>
+
+
+</form>
+<button style="position:relative; left:40px;" onclick="filterCity()">Filter</button>
+<button type="reset" style="position:relative; left:50px;" onclick="reDrawMap()">Reset</button>
+</div>
+
+
+
+<script src="https://d3js.org/d3.v3.min.js"></script>
+
+<script>
+
+//Map dimensions (in pixels)
+var width = 1500,
+    height = 650;
+
+//Map projection
+var projection = d3.geo.albersUsa()
+    .scale(1095.3314229136072)
+    .translate([width/2,height/2]) //translate to center the map in view
+
+//Generate paths based on projection
+var path = d3.geo.path()
+    .projection(projection);
+
+//Create an SVG
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+
+
+//Group for the map features
+var features = svg.append("g")
+    .attr("class","features");
+
+//Create a tooltip, hidden at the start
+var tooltip = d3.select("body").append("div").attr("class","tooltip");
+
+//Keeps track of currently zoomed feature
+var centered;
+
+d3.json("us-states.geojson",function(error,geodata) {
+  if (error) return console.log(error); //unknown error, check the console
+
+  //Create a path for each map feature in the data
+var myPath = features.selectAll("path")
+    .data(geodata.features)
+    .enter()
+    .append("path")
+    .attr("d",path)
+    .on("mouseover",showTooltip)
+    .on("mousemove",moveTooltip)
+    .on("mouseout",hideTooltip)
+    .on("click",clicked)
+
+
+});
+
+
+
+// Zoom to feature on click
+function clicked(d,i) {
+
+  //Add any other onClick events here
+
+  var x, y, k;
+
+  if (d && centered !== d) {
+    // Compute the new map center and scale to zoom to
+    var centroid = path.centroid(d);
+    var b = path.bounds(d);
+    x = centroid[0];
+    y = centroid[1];
+    k = .8 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height);
+    centered = d
+  } else {
+    x = width / 2;
+    y = height / 2;
+    k = 1;
+    centered = null;
+  }
+
+  // Highlight the new feature
+  features.selectAll("path")
+      .classed("highlighted",function(d) {
+          return d === centered;
+      })
+      .style("stroke-width", 1 / k + "px"); // Keep the border width constant
+
+  <!--//Zoom and re-center the map-->
+  <!--//Uncomment .transition() and .duration() to make zoom gradual-->
+  <!--features-->
+      <!--//.transition()-->
+      <!--//.duration(500)-->
+      <!--.attr("transform","translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")-->
+
+}
+
+//Position of the tooltip relative to the cursor
+var tooltipOffset = {x: 5, y: -25};
+
+//Create a tooltip, hidden at the start
+function showTooltip(d) {
+  moveTooltip();
+
+  tooltip.style("display","block")
+      .text(d.properties.NAME);
+}
+
+//Move the tooltip to track the mouse
+function moveTooltip() {
+  tooltip.style("top",(d3.event.pageY+tooltipOffset.y)+"px")
+      .style("left",(d3.event.pageX+tooltipOffset.x)+"px");
+}
+
+//Create a tooltip, hidden at the start
+function hideTooltip() {
+  tooltip.style("display","none");
+}
+
+
+
+
+function getCityData(city, state ,groupByCity){
+
+var cityData = [];
+
+    for(var i=0; i< groupByCity.length ; i++){
+        if (state === groupByCity[i].key){
+            <!--console.log(state);-->
+            for (var j = 0 ; j< groupByCity[i].values.length ; j++){
+            if (city === groupByCity[i].values[j].key){
+            cityData.push(groupByCity[i].values[j].values)
+            console.log(city);
+}
+}
+        }
+    }
+
+
+
+        var groupByGender = d3.nest()
+                            .key(function(d){return d.gender;})
+                            .rollup(function(v){return v.length;})
+                            .entries(cityData[0]);
+
+                   console.log(groupByGender);
+        var data = [];
+        var m =0;
+        var f=0;
+
+        for (var i=0; i< groupByGender.length ; i++){
+            if(groupByGender[i].key.toUpperCase() === "M"){
+                    data[0] = groupByGender[i].values
+                    m=1;
+                    }
+
+            if(groupByGender[i].key.toUpperCase() === 'F'){
+                    data[1] = groupByGender[i].values
+                    f=1;
+                    }
+        }
+
+        if(m===0){data[0]= 0; }
+        if(f===0){data[1]= 0; }
+
+    return data;
+
+}
+
+
+
+<!--function getLocData(data){-->
+    <!--var deathByLocation = d3.nest()-->
+                    <!--.key(function(d){return d.lng;})-->
+                    <!--.key(function(d){return d.lat;})-->
+
+                    <!--.entries(data);-->
+                    <!--&lt;!&ndash;console.log(deathByLocation)&ndash;&gt;-->
+    <!--return deathByLocation;-->
+
+<!--}-->
+
+
+function getData(data){
+
+    var countByGender = d3.nest()
+                    .key(function(d){return d.state.toUpperCase();})
+                    .key(function(d){return d.city.toUpperCase();})
+                    .key(function(d){return d.gender;})
+                    .rollup(function(v){return v.length})
+                    .entries(data);
+
+
+    <!--&lt;!&ndash;console.log(deathByLocation)&ndash;&gt;-->
+
+
+var finalData = [];
+var gender = [];
+        var m =0;
+        var f=0;
+    for(var i =0; i< countByGender.length; i++){
+        var state = countByGender[i].key
+        for(var j=0; j<countByGender[i].values.length; j++){
+            var city = countByGender[i].values[j].key
+            var l = countByGender[i].values[j].values.length
+
+
+        for (var k=0; k< l; k++){
+        if(countByGender[i].values[j].values[k].key.toUpperCase() === "M"){
+                    gender[0] = countByGender[i].values[j].values[k].values
+
+                    m=1;
+                    }
+
+            if(countByGender[i].values[j].values[k].key.toUpperCase() === 'F'){
+                    gender[1] = countByGender[i].values[j].values[k].values
+                    f=1;
+                    }
+        }
+
+         if(m===0){gender[0]= 0; }
+        if(f===0){gender[1]= 0; }
+
+        finalData.push([state, city, gender[0]+gender[1] ,gender[0], gender[1]])
+
+    }}
+<!--console.log(finalData)-->
+    return finalData
+}
+
+
+<!---  Plot lon , lat->
+
+var da = [];
+
+reDrawMap();
+
+
+function reDrawMap(){
+d3.csv('./SlateGunDeaths.csv', function(da){
+
+var data = getData(da);
+<!--da.push(da);-->
+
+
+drawCircles(data, da)
+
+var groupByCity = d3.nest()
+                     .key(function(d){return d.state})
+                     .key(function(d){return d.city})
+                     .entries(da);
+
+
+})};
+
+function drawCircles(data, da){
+
+for(var j =0; j<data.length; j++){
+for(var i=0; i<da.length; i++){
+   if(data[j][1].toUpperCase()=== da[i].city.toUpperCase() && data[j][0].toUpperCase() === da[i].state.toUpperCase()){
+                    data[j][5] = da[i].lng
+                    data[j][6] = da[i].lat
+
+                    break;
+                }
+            }
+}
+<!--console.log(data)-->
+
+var circle = svg.selectAll("circle")
+		.data(data).enter()
+		.append("circle")
+		.attr("cx", function (d) {
+
+                    d = [d[5], d[6]]
+		            return projection(d)[0];
+		         })
+		.attr("cy", function (d) {
+
+                    d = [d[5], d[6]]
+		            return projection(d)[1]; })
+		.attr("r", function(d){
+
+		if (d[2] >0 && d[2] < 50){
+
+		    return "2px"}
+		else if(d[2] >=50 && d[2] < 100)
+		    {return "10px"}
+		else {return "18px"}
+
+		})
+		.attr("fill", function(d){
+
+		if (d[2] >0 && d[2] < 50){
+
+		    return "#e34a33"}
+		else if(d[2] >=50 && d[2] < 100)
+
+		    {return "#fc8d59"}
+
+		else {return "#fdcc8a"}
+
+		})
+
+
+
+
+        .on('mouseover', function(d){
+
+            <!--var long = d[0];-->
+            <!--var lat = d[1];-->
+
+
+            <!--for(var i=0; i<da.length; i++){-->
+                <!--if(long=== da[i].lng && lat === da[i].lat){-->
+                    <!--var city = da[i].city-->
+                    <!--var state = da[i].state-->
+                    <!--break;-->
+                <!--}-->
+            <!--}-->
+
+
+            tooltip.transition()
+                .style('opacity', 0.9)
+            tooltip.style("display","block")
+
+            .html("<table border=1 bor style='border-collapse: collapse;text-align: left'>"+
+
+					"<tr><td><b>City: </b></td><td>"+d[1]+"</td></tr>"+
+					"<tr><td><b>State: </b></td><td>"+d[0]+"</td></tr>"+
+					"<tr><td><b>Total: </b></td><td>"+d[2]+"</td></tr>"+
+					"<tr><td><b>Male: </b></td><td>"+d[3]+"</td></tr></table>"+
+					"<tr><td><b>Female: </b></td><td>"+d[4]+"</td></tr></table>")
+
+
+            <!--tooltip.html(da)-->
+                <!--.style('left', (d3.event.pageX)+ 'px')-->
+                <!--.style('top',(d3.event.pageY)+ 'px')-->
+            <!--tempColor = this.style.fill;-->
+          <!--d3.select(this)-->
+                .transition().delay(500).duration(200)
+                <!--.style('opacity', .5)-->
+                <!--.style('fill', 'yellow')-->
+        })
+        .on("mousemove",moveTooltip)
+    .on("mouseout",hideTooltip)
+    .on("click",clicked)
+
+
+
+<!-- -->
+};
+
+function filterCity(){
+    <!--console.log(document.getElementById("cityInput").value)-->
+
+    var city = document.getElementById("cityInput").value;
+    svg.selectAll("circle").remove();
+
+
+
+    d3.csv('./SlateGunDeaths.csv', function(da){
+
+console.log(city.toLowerCase())
+
+    var filteredCityData = [];
+<!--console.log(da)-->
+    for (var i=0; i< da.length; i++){
+        if(city.toLowerCase() === da[i].city.toLowerCase()){
+
+            filteredCityData.push(da[i])
+        }
+    }
+
+    var data = getData(filteredCityData);
+    console.log(data)
+    drawCircles(data, filteredCityData)
+    })
+
+
+}
+
+
+
+</script>
+
+<div style="position: relative;
+
+  left: 100px;
+  right: 200px;
+  display: block;
+  margin-left: 10px;
+  margin-right: 10px;
+  font: 20px sans-serif">
+    <h3>Visualization</h3>
+    <p>The size of the points is used to convey the information about number of deaths where smaller the size, less number of deaths. </p>
+
+    <p>Different colors are used so that all the points are visible.</p>
+    <ul>
+    <li style="color: #e34a33">Death Count: 0-50</li>
+    <li style="color: #fc8d59">Death Count: 50-100</li>
+    <li style="color: #fdcc8a">Death Count: >100</li>
+        </ul>
+    <br>
+    <p>Hover over each point, to get the information for particular county.</p>
+    <p>You can also search for a specific city by the input tab provided.</p>
+    <p>Click on reset to redraw all the points.</p>
+
+    <h3>Data</h3>
+    <p>Data for the above map is taken from Slate which can be downloaded from here.
+        <a href=" http://slate-interactives-prod.elasticbeanstalk.com/gun-deaths/getCSV.php" style ="color:#ef6548">Slate Data</a></p>
+    <p>This data is from Dec, 2012 - Dec, 2013.</p>
+
+    <h3>Sources</h3>
+    <p>The visualization is done with the help from following sources:</p>
+    <ul>
+        <li><a href="https://www.lynda.com/D3js-tutorials/Data-Visualization-D3js/162449-2.html" style ="color:#ef6548">Lynda</a> : D3 Tutorials</li>
+        <li><a href="https://stackoverflow.com/" style ="color:#ef6548">Stackoverflow</a>: Reference examples</li>
+        <li><a href="http://mapstarter.com/" style ="color:#ef6548">Mapstarter</a>: US States Map</li>
+        <li><a href="https://bl.ocks.org/" style ="color:#ef6548">bl.ocks</a>: Reference examples</li>
+
+    </ul>
+    <br>
+    <br>
+
+
+
+</div>
