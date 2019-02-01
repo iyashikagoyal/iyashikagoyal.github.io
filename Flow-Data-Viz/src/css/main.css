@@ -1,0 +1,18 @@
+body { margin: 0; }
+
+#scene { width: 90%; height: 90%}
+
+/* SVG styling */
+svg {
+    font-family: helvetica, sans-serif;
+}
+
+#slideDiv{display : inline-block;}
+
+path, line {
+    stroke: #777;
+}
+
+h1, h3{text-align: center; color:#084594 ;}
+
+p{ text-align: center; color: #3182bd; font-size:20px;}
