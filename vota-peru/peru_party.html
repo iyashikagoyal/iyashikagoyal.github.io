@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Vota Peru</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Page level plugin CSS-->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <!-- d3 v4 -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <!-- d3 queue v3 -->
+    <script src="https://d3js.org/d3-queue.v3.min.js"></script>
+
+    <!-- billboardJS for charts -->
+    <link rel="stylesheet" href="https://naver.github.io/billboard.js/release/latest/dist/billboard.min.css">
+    <script src="https://naver.github.io/billboard.js/release/latest/dist/billboard.min.js"></script>
+
+    <!-- Slider for the map -->
+    <script src="https://unpkg.com/d3-simple-slider/build/d3-simple-slider.js"></script>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+
+  </head>
+
+  <body id="page-top">
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+      <!-- <div> -->
+        
+        <a class="navbar-brand mr-1" style="margin: auto;" href="peru_map.html"><i class="navbar-brand mr-1 fas fa-fw fa-hand-peace"></i>VotaPeru</a>
+      <!-- </div> -->
+      
+      <!-- Navbar Search -->
+      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search candidate or party" aria-label="Search" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-info" type="button">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </nav>
+
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+      <ul class="sidebar navbar-nav toggled">
+        <li class="nav-item">
+          <a class="nav-link" href="peru_map.html">
+            <i class="fas fa-fw fa-map"></i>
+            <span>Map of Peru</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="peru_party.html">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Regional Party</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="candidate_comparisons.html">
+            <i class="fas fa-fw fa-id-card"></i>
+            <span>Candidates 2018</span></a>
+        </li>
+      </ul>
+
+      <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+          <!-- Area Chart Example-->
+          <div class="card mb-3" style="border-radius: 7px; border-color: #C0C0C0;">
+            <!-- <div class="card-header">
+              <i class="fas fa-chart-area"></i>
+              Political Parties of Peru
+            </div> -->
+            <div class="card-body">
+                <!-- Dropdown -->
+              <div class="row">
+                <div class="dropdown" id="dropdownRegion" style="margin-right: 0px;">
+                  <button class="btn btn-outline-info btn-sm dropdown-toggle" type="button" id="selectRegionButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-left: 11px;">
+                    Select Region
+                  </button>
+                  <div class="dropdown-menu" style="min-width: 400px;" aria-labelledby="selectRegionButton">
+                    <ul style="padding: 10px; margin: 0px;">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <ul class="multi-column-dropdown" id="selectRegion1"></ul>
+                        </div>
+                        <div class="col-sm-6">
+                          <ul class="multi-column-dropdown" id="selectRegion2"></ul>
+                        </div>
+                    </ul>
+                  </div>
+                </div>
+                <div class="dropdown" id="dropdownProvince">
+                  <button class="btn btn-outline-info btn-sm dropdown-toggle" type="button" id="selectProvinceButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-left: 11px;" disabled="true">
+                      Select Province
+                  </button>
+                  <div class="dropdown-menu" style="min-width: 100px;" aria-labelledby="selectProvinceButton">
+                    <ul>
+                      <div class="row">
+                        <div>
+                          <ul class="single-column-dropdown" id="selectProvince1" style="padding-left: 0px;"></ul>
+                        </div>
+                    </ul>
+                  </div>
+                </div>
+                <div class="dropdown" id="dropdownDistrict">
+                  <button class="btn btn-outline-info btn-sm dropdown-toggle" type="button" id="selectDistrictButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-left: 11px;" disabled="true">
+                      Select District
+                  </button>
+                  <div class="dropdown-menu" style="min-width: 100px;" aria-labelledby="selectDistrictButton">
+                    <ul>
+                      <div class="row">
+                        <div>
+                          <ul class="single-column-dropdown" id="selectDistrict1" style="padding-left: 0px;"></ul>
+                        </div>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+                <!--- End dropdown -->
+                <div class="row">
+                  <div id="pNames" class="col-lg-4"><br>
+                    <h5 id="partyHeader"></h5>
+                    <div class="row col-sm-4" id="dynamicPartyNames">
+                    </div>
+                  </div>
+                  <div id="categoryChart" class="col-lg-8" style="width: 650px; float:right; font-family: Arial, Helvetica, sans-serif">
+                    <div><br><br><h6 style="text-align: left; margin-left: 20px;">Party Details : Gender ratio</h6>
+                    <svg id="category"></svg>
+                  </div>  
+                </div>
+            </div>
+
+          <!-- DataTables Example -->
+          <div class="card mb-3" style="visibility: hidden;" id="radarBody">
+            <div class="card-header">
+              <!-- <i class="fas fa-table"></i> -->
+              Party Comparison</div>
+            <div class="card-body">
+              
+              <div id="rChart"></div>
+          </div>
+        </div>
+        <!-- /.container-fluid -->
+      </div>
+      <!-- /.content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Page level plugin JavaScript-->
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin.min.js"></script>
+
+    <!-- Demo scripts for this page-->
+    <script src="js/demo/datatables-demo.js"></script>
+
+  </body>
+  <script>
+    // var regionSelected;
+
+    function someFn(partySelected) {
+      console.log(partySelected);
+      var liSelected = document.getElementById(partySelected);
+      if (liSelected.classList.contains('active')) {
+        liSelected.classList.remove('active');
+      }else{
+        liSelected.classList.add('active');
+
+        //call graph
+        draw_comparison_shapes(party_map, partySelected);
+      }
+
+    }
+    
+    function regionSelected(regionSelected) {
+
+      d3.select('#selectDistrictButton')
+        .text('Select District');
+      
+      d3.select('#selectRegionButton')
+        .text(regionSelected);
+      
+      var element = document.getElementById('PartyNames1');
+      if(element != null)
+        element.remove();
+      var firstLetter = regionSelected.charAt(0).toUpperCase();
+      var remaining = firstLetter + regionSelected.slice(1).toLowerCase();
+      document.getElementById('partyHeader').innerText = "Political Parties in region " + remaining;
+
+      var provinceButton = document.getElementById('selectProvinceButton');
+      provinceButton.disabled = false;
+      var districtButton = document.getElementById('selectDistrictButton');
+      districtButton.disabled = true;
+      populateProvince(regionSelected);
+      d3.csv('csv_data/ERegionalesMunicipales2014_MunicipalElectionResults2014_Regional.csv',function (d) {
+        // console.log(d);
+        for(var i=0; i<d.length;i++){
+          if (d[i].REGION == regionSelected) {
+            // console.log(d[i].POLITICAL_ORGANIZATION);
+            d3.select('#pNames')
+              .append('ul')
+              .attr('class', 'list-group pName')
+              .attr('id', 'PartyNames1');
+
+            if (true) {
+            d3.select('#PartyNames1')
+              .append('li')
+              .attr('class', 'list-group-item')
+              .attr('style', 'font-size: 12px; padding: 5px;')
+              .attr('id',d[i].POLITICAL_ORGANIZATION)
+              .text(d[i].POLITICAL_ORGANIZATION)
+              .on('click',function (){someFn(this.id)});
+              // flood++;
+            }
+          }
+        }
+      });
+    }
+    // Populate Region Dropdown -----------------------------------------
+    d3.json('peru_data/peru_region.geojson', function(error, mapData) {
+      var features = mapData.features;
+      for (var i = 0; i<features.length; i++){
+
+      // console.log(features[0].properties.NOMBDEP);
+        if (i > (features.length)/2) {
+          // console.log('1');
+          d3.select('#selectRegion2')
+            .append('li')
+            .append('a')
+            .attr('class', 'dropdown-item')
+            .attr('id', features[i].properties.NOMBDEP)
+            .text(features[i].properties.NOMBDEP)
+            .on('click', function () {
+              // console.log(this.id);
+              regionSelected(this.id);
+            });
+        }
+        else{
+          // console.log('2');
+          d3.select("#selectRegion1")
+            .append('li')
+            .append("a")
+            .attr('class', 'dropdown-item')
+            .attr('id', features[i].properties.NOMBDEP)
+            .text(features[i].properties.NOMBDEP)
+            .on('click', function () {
+              // console.log(this.id);
+              regionSelected(this.id);
+            });
+        } //else
+      } //for
+    });//d3JSON
+
+    // Populate Province Dropdown -----------------------------------------------------
+    function populateProvince(region) {
+      d3.json('peru_data/peru_province.geojson', function(error, mapData) {
+        var features = mapData.features;
+        $(selectProvince1).empty();
+        d3.select('#selectProvinceButton')
+        .text('Select Province');
+        
+        for(var i = 0; i<features.length; i++){
+          if (region == features[i].properties.FIRST_NOMB) {
+            // console.log(features[i].properties.NOMBPROV);
+            d3.select('#selectProvince1')
+            .append('li')
+            .attr('class', 'dropdown-item')
+            .attr('style', 'padding: 5px;')
+            .append('a')
+            .attr('id', features[i].properties.NOMBPROV)
+            .text(features[i].properties.NOMBPROV)
+            .on('click', function () {
+              // console.log(this.id);
+              provinceSelected(this.id);
+            });
+          }
+        }
+      });
+    }
+    // Populate district Dropdown ------------------------------------------------------
+    function populateDistrict(province) {
+      d3.json('peru_data/peru_district.geojson', function(error, mapData) {
+        var features = mapData.features;
+        console.log(province, features);
+        $(selectDistrict1).empty();
+        // d3.select('#selectDistrictButton')
+        // .text('Select District');
+        for(var i = 0; i<features.length; i++){
+          if (province == features[i].properties.NOMBPROV) {
+            // console.log(features[i].properties.NOMBPROV);
+            d3.select('#selectDistrict1')
+            .append('li')
+            .attr('class', 'dropdown-item')
+            .attr('style', 'padding: 5px;')
+            .append('a')
+            .attr('id', features[i].properties.NOMBDIST)
+            .text(features[i].properties.NOMBDIST)
+            .on('click', function () {
+              // console.log(this.id);
+              districtSelected(this.id);
+            });
+          }
+        }
+      });
+    }
+    // Show District Level Parties --------------------------------------------------------
+    function districtSelected(district) {
+      d3.select('#selectDistrictButton')
+        .text(district);
+      var firstLetter = district.charAt(0).toUpperCase();
+      var remaining = firstLetter + district.slice(1).toLowerCase();
+      var regionButtonVal = document.getElementById('selectRegionButton').innerText;
+      var provinceButtonVal = document.getElementById('selectProvinceButton').innerText;
+      document.getElementById('partyHeader').innerText = "Political Parties in district " + remaining + " in " + provinceButtonVal.charAt(0).toUpperCase() + provinceButtonVal.slice(1).toLowerCase() + ", " + regionButtonVal.charAt(0).toUpperCase() + regionButtonVal.slice(1).toLowerCase();
+      var element = document.getElementById('PartyNames1');
+      if(element != null)
+        element.remove();
+
+      d3.csv('csv_data/District_Parties.csv',function (d) {
+        // console.log(d);
+        for(var i=1; i<d.length;i++){
+          if (d[i].DISTRICT == district) {
+            // console.log(d[i].POLITICAL_ORGANIZATION);
+            d3.select('#pNames')
+              .append('ul')
+              .attr('class', 'list-group pName')
+              .attr('id', 'PartyNames1');
+
+            if (true) {
+            d3.select('#PartyNames1')
+              .append('li')
+              .attr('class', 'list-group-item')
+              .attr('style', 'font-size: 12px; padding: 5px;')
+              .attr('id',d[i].POLITICAL_ORGANIZATION)
+              .text(d[i].POLITICAL_ORGANIZATION)
+              .on('click',function (){someFn(this.id)});
+              // flood++;
+            }
+          }
+        }
+      });
+    }
+    // Show province party --------------------------------------------------------------
+    function provinceSelected(province) {
+      var flood = 0;
+      populateDistrict(province);
+      d3.select('#selectProvinceButton')
+        .text(province);
+      d3.select('#selectDistrictButton')
+        .text('Select District');
+      // var element = document.getElementById('dynamicPartyNames');
+      // element.remove();
+      // $(dynamicPartyNames).empty();
+      var firstLetter = province.charAt(0).toUpperCase();
+      var remaining = firstLetter + province.slice(1).toLowerCase();
+      var regionButtonVal = document.getElementById('selectRegionButton').innerText;
+
+      // console.log(regionButtonVal);
+      document.getElementById('partyHeader').innerText = "Political Parties in province " + remaining + ", " +regionButtonVal.charAt(0).toUpperCase() + regionButtonVal.slice(1).toLowerCase();
+
+      var element = document.getElementById('PartyNames1');
+      if(element != null)
+        element.remove();
+
+      var districtButton = document.getElementById('selectDistrictButton');
+      districtButton.disabled = false;
+
+      d3.csv('csv_data/Province_Parties.csv',function (d) {
+        // console.log(d);
+        for(var i=1; i<d.length;i++){
+          if (d[i].PROVINCE == province) {
+            // console.log(d[i].POLITICAL_ORGANIZATION);
+            d3.select('#pNames')
+              .append('ul')
+              .attr('class', 'list-group pName')
+              .attr('id', 'PartyNames1');
+
+            if (true) {
+            d3.select('#PartyNames1')
+              .append('li')
+              .attr('class', 'list-group-item')
+              .attr('style', 'font-size: 12px; padding: 5px;')
+              .attr('id',d[i].POLITICAL_ORGANIZATION)
+              .text(d[i].POLITICAL_ORGANIZATION)
+              .on('click',function (){someFn(this.id)});
+              // flood++;
+            }
+          }
+        }
+      });
+    }
+
+    $('#pNames').click(function () {
+      showRadar();
+      //show comparisons 
+    });
+
+    function showRadar() {
+      document.getElementById('radarBody').style.visibility = "visible"; 
+      var chart = bb.generate({
+      data: {
+        x: "x",
+        columns: [
+      ["x", "Votes Obtained in Last Election", "Regions", "Criminal records", "University Education", "Number of Candidates"],
+      ["ACCION POPULAR", 330, 350, 200, 380, 150],
+      ["ALIANZA PARA EL PROGRESO", 130, 100, 30, 200, 80],
+      ["MOVIMIENTO INTEGRACION LORETANA", 230, 153, 85, 300, 250]
+        ],
+        type: "radar",
+        labels: true
+      },
+      radar: {
+        axis: {
+          max: 400
+        },
+        level: {
+          depth: 1
+        },
+        direction: {
+          clockwise: false
+        }
+      },
+      bindto: "#rChart"
+    });
+  }
+
+/*helper functions*/
+function random (start, end) {
+    var range = end - start;
+    return start + Math.floor(Math.random() * range);
+  }
+  
+  function randomPick (array) {
+    var length = array.length;
+    var index = random(0, array.length);
+    return array[index];
+  }
+  
+  
+  function randomComparator (d) {
+    return randomPick([-1, 0, 1]);
+  }
+  
+  function capitalize (str) {
+    return str[0].toUpperCase() + str.substr(1);
+  }
+
+  /* set up color according to percentages */
+  function setColor(num, percentA, percentB,range){
+    if (num < percentA*range){
+      return '#2171b5';
+    } else {
+      return 'pink';
+    }
+  }
+
+  // More helper functions
+  function updateLabels (grid,svg) {
+    var groups = grid.groups();
+  
+    // Provide d3 a key function so that labels are animated correctly
+    // http://bost.ocks.org/mike/constancy/
+    var labels = svg.selectAll('text').data(groups, function (d) { return d.name; });
+    labels.enter()
+      .append('text')
+        .attr('y', function (d) { return d.y - 40; })
+        .style('opacity', 0);
+    labels.exit()
+        .transition(grid,svg)
+        .style('opacity', 0)
+      .remove();
+  
+    labels
+      .text(function (d) { return capitalize(d.name) + ': (' + d.data.length + ')'; })
+      .transition(grid,svg)
+        .duration(750)
+        .attr('x', 30)
+        .attr('y', function (d) { return d.y - 40; })
+        .style('opacity', 1);
+  }
+  
+  
+  function sortRandom () {
+    grid.sort(randomComparator, randomComparator)
+    transition(grid,svg);
+  }
+  
+  function groupByShape (grid, svg,shapes) {
+    grid.groupBy('shape');
+    transition(grid,svg,shapes);
+  }
+  
+  function groupByColor () {
+    grid.groupBy('color');
+    transition(grid,svg);
+  }
+
+  function transition (grid,svg,shapes) {
+    updateLabels(grid,svg);
+    svg.attr('height', grid.height());
+    shapes.transition(grid,svg,shapes)
+      .duration(750)
+      .attr('transform', function (d) { return 'translate(' + d.x + ',' + d.y + ')'; });
+  }
+
+  ////// End of comparison helper functions
+
+  function returnAgeMap(d){
+    var party_map = {};
+    for(var i=1; i<d.length;i++){
+      if (!(d[i].POLITICAL_PARTY in party_map)) {
+        party_map[d[i].POLITICAL_PARTY] = {"male": 0, "female":0, "candidate_ids":[], "university_educated":0}; 
+      }
+      //add statistics for female and male
+      if (d[i].GENDER == "FEMENINO"){
+        party_map[d[i].POLITICAL_PARTY].female += 1; 
+      } else if (d[i].GENDER == "MASCULINO"){
+        party_map[d[i].POLITICAL_PARTY].male += 1; 
+      }
+      //add candidate ids
+      party_map[d[i].POLITICAL_PARTY].candidate_ids.push(parseInt(d[i].DNI_ID));
+    }
+    return party_map;
+  }
+
+  function returnUniversityMap(d){
+    var uni_map = {};
+    for(var i=1; i<d.length;i++){
+      if (!(d[i].CANDIDATE_ID in uni_map)){
+        if(d[i].HAS_UNIVERSITY_EDUCATION != "NO"){
+          uni_map[d[i].CANDIDATE_ID] = 1;
+        }
+      }
+    }
+    return uni_map;
+  }
+
+  function count_education(uni_map, party_map){
+    for (key in party_map){
+      //candidates = party_map[key].candidate_ids;
+      for (var i = 0; i < party_map[key].candidate_ids.length; i++){
+        if (party_map[key].candidate_ids[i] in uni_map){
+            party_map[key].university_educated +=1;
+        }
+      }
+    }
+  }
+
+  function setShape(category){
+    if (category=="gender"){
+      return 'square';
+    } 
+  }
+
+  function draw_comparison_shapes(party_map, party_name){
+    console.log("draw comparison shapes");
+
+    if (party_name in party_map){
+      female = party_map[party_name].female;
+      male = party_map[party_name].male;
+      console.log("party name");
+      console.log(party_name);
+      console.log("party map contents for this party");
+      console.log(party_map[party_name]);
+
+      /*set up map*/
+      var width = 1000;
+      var height = 500;
+      var color = d3.scaleOrdinal(d3.schemeCategory10);
+      var sizeScale = d3.scaleQuantile().domain([20, 40]).range(d3.range(20, 40, 4));
+      /*var delayScale = d3.scaleLinear().domain([0, 400]).range([0, 300]);*/
+
+      //Add the Data 
+      percentA = (male / (male+female));
+      percentB = (female / (male+female));
+      myrange = (male+female)/20;
+      console.log(percentA);
+      console.log(percentB);
+      //num_icons = 100;
+      var data = d3.range(0, myrange).map(function (i) {
+        return {
+          index: i,
+          prop1: randomPick(['a', 'b', 'c']),
+          prop2: randomPick(['a', 'b', 'c', 'd', 'e']),
+          x: random(width / 2 - 100, width / 2 + 100),
+          y: random(height / 2 - 100, height / 2 + 100),
+          color: setColor(i, percentA, percentB, myrange),
+          shape: 'circle',
+          size: 15
+        };
+      });
+     
+      //remove all previous circles
+      svg.selectAll('circle').remove();
+
+      var shapes = svg.selectAll('.shape').data(data)
+        .enter()
+          .append('g')
+            .attr('transform', function (d) { return 'translate(' + d.x + ',' + d.y + ')'; })
+            .attr('data-size', function (d) { return d.size; })
+            .attr('data-shape', function (d) { return d.shape; });
+      
+      var circles = shapes.filter(function (d) { return d.shape === 'circle'; })
+        .append('circle')
+          .attr('r', function (d) { return d.size / 2; })
+          .attr('fill', function (d) { return d.color; });
+
+      var squares = shapes.filter(function (d) { return d.shape === 'square'; })
+      .append('rect')
+        .attr('width', function (d) { return d.size; })
+        .attr('height', function (d) { return d.size; })
+        .attr('x', function (d) { return - d.size / 2; })
+        .attr('y', function (d) { return - d.size / 2; })
+        .attr('fill', function (d) { return d.color;});
+      /*set column width and column height here*/
+      grid.data(data);
+      
+      //.delay(function (d) { return delayScale(d.groupIndex * 150 + d.index * 1); })
+      groupByShape(grid,svg,shapes);
+    }
+  }
+
+  //initialize grid
+  var grid = null;
+  var svg = null;
+
+  //filenames of CSV files to read
+  var filenames = ["csv_data/CANDIDATOSERM2018v2_CANDIDATES2018_joined.csv",
+                  "csv_data/HDVEDUCACIONUNIVERSITARIA_University_Education_joined.csv"];
+
+  //initialize d3.queue() object
+  var queue = d3.queue();
+
+  //Pass in each filename to d3.csv function
+  filenames.forEach(function(filename) {
+    queue.defer(d3.csv, filename);
+  });
+
+  let party_map = null;
+  let univ_map = null;
+  //Once each d3.csv file finishes and returns, execute body of awaitAll
+  queue.awaitAll(function(error, csvDataSets) {
+    if(error) throw error;
+
+    party_map = returnAgeMap(csvDataSets[0]);
+    univ_map = returnUniversityMap(csvDataSets[1]);
+    count_education(univ_map, party_map);
+    console.log("party map with university education")
+    console.log(party_map);
+
+    num_entries = csvDataSets[0].length;
+
+    var width = 650;
+    var height = 500;
+    grid = d3.grid()
+      .width(width)
+      .height(height)
+      .colWidth(25)
+      .rowHeight(25)
+      .marginTop(75)
+      .marginLeft(50)
+      .sectionPadding(100)
+
+    svg = d3.select('#category')
+      .attr('width', width)
+      .attr('height', height);
+  });
+
+  </script>
+  
+  <script src="grid.js"></script>
+</html>
