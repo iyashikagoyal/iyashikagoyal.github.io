@@ -1,3 +1,0 @@
-Create paper prototypes for design of solution
-Identify best back-end technologies for web platform
-Start implementing back-end of web platform
