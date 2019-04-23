@@ -1,0 +1,325 @@
+/*flexbox style*/
+
+
+:root {
+    --gradient: linear-gradient(to bottom, #b8b8b8 0%, #858585 100%);
+    --gradient-light: linear-gradient(to bottom, #b4e8f8 0%, #cbd3f0 100%);
+}
+
+/*#header-bar{*/
+
+/*    background: #00416A;  !* fallback for old browsers *!*/
+/*    background: -webkit-linear-gradient(to left, #E4E5E6, #00416A);  !* Chrome 10-25, Safari 5.1-6 *!*/
+/*    background: linear-gradient(to left, #E4E5E6, #00416A); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+/*}*/
+#grid-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    /*grid-gap: 10px;*/
+    background-color: #f7f7f7;
+    height: 100%;
+    padding: 0;
+}
+
+.grid-item{
+    display: grid;
+    grid-template-rows: 10% 90%;
+    grid-template-columns: 75% 25%;
+    background-color: #f7f7f7;
+    height: 100%;
+    padding: 0;
+}
+
+
+#map-heading{
+    grid-column: 1/3;
+    grid-row: 1/2;
+}
+
+#sidebar-right{
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+#map-layer{
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+/*Detail panels grid arrangements*/
+#details-panel {
+    display: grid;
+    grid-template-columns: 36% 36% 16% 6% 6%;
+    grid-template-rows: 10% 9% 42% 7% 7% 7% 18%;
+    background-color: white;
+    box-shadow: -2px 0px 20px -5px #7a7a7a;
+}
+
+#zipHeading1{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+#totalPopulation1{
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+
+#cancerPlots1{
+    grid-column: 1/2;
+    grid-row: 3/4;
+}
+
+/*#incomeHeading1{*/
+/*    grid-column: 1/5;*/
+/*    grid-row: 3/4;*/
+/*}*/
+
+#incomePlot1{
+    grid-column: 1/2;
+    grid-row: 4/5;
+}
+
+#groceryNumber1{
+    grid-column: 1/2;
+    grid-row: 5/6;
+}
+
+#insurancePlot1{
+    grid-column: 1/2;
+    grid-row: 6/7;
+}
+
+#raceHeading1{
+    grid-column: 3/6;
+    grid-row: 2/3;
+}
+
+#racePlot1{
+    grid-column: 4/5;
+    grid-row: 3/7;
+}
+
+#raceLabel1{
+    grid-column: 3/4;
+    grid-row: 3/7;
+}
+
+#educationPlot1{
+    grid-column: 1/2;
+    grid-row: 7/8;
+}
+
+/*zip 2 detail container space start*/
+#zipHeading2{
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+#totalPopulation2{
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+
+
+#cancerPlots2{
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
+
+#incomePlot2{
+    grid-column: 2/3;
+    grid-row: 4/5;
+}
+
+#groceryNumber2{
+    grid-column: 2/3;
+    grid-row: 5/6;
+}
+
+#insurancePlot2{
+    grid-column: 2/3;
+    grid-row: 6/7;
+}
+
+#racePlot2{
+    grid-column: 5/6;
+    grid-row: 3/7;
+}
+
+#educationPlot2{
+    grid-column: 2/3;
+    grid-row: 7/8;
+}
+/*zip 2 detail container style space end*/
+
+/*zip 1 detail container after selecting compare start */
+#zipHeading1.compare{
+    grid-column: 1/3;
+    grid-row: 1/2;
+}
+
+#cancerPlots1.compare{
+    grid-column: 1/3;
+    grid-row: 2/3;
+}
+
+#incomePlot1.compare{
+    grid-column: 1/3;
+    grid-row: 4/5;
+}
+
+#groceryNumber1.compare{
+    grid-column: 1/2;
+    grid-row: 5/6;
+}
+
+#insurancePlot1.compare{
+    grid-column: 2/3;
+    grid-row: 5/6;
+}
+
+#racePlot1.compare{
+    grid-column: 1/3;
+    grid-row: 7/8;
+}
+
+#educationPlot1.compare{
+    grid-column: 1/3;
+    grid-row: 9/10;
+}
+/*zip 1 detail container after selecting compare end*/
+
+
+/*Detail panels grid arrangements end*/
+
+#heading {
+    margin-left: 0;
+}
+
+#cancerFilter {
+    margin-left: 25%
+}
+
+
+/*map styles*/
+.map {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+#map-heading {
+    fill: #212529;
+    font-size: 48px;
+    font-family: 'Signika', sans-serif;
+
+    text-align: center;
+    margin: auto;
+}
+
+.map-layer {
+    background-color: white;
+    stroke: #aaa;
+}
+
+#sidebar-right{
+    background-color: white;
+}
+
+.sidebar-slider-heading{
+
+    /*margin: auto;*/
+    margin-left: 17px;
+    margin-top: 10px;
+}
+
+.slider-name{
+    margin: auto;
+}
+
+.slider{
+    width: 100px;
+}
+
+
+.legend {
+    position:absolute;
+    left:20px;
+    top:30px;
+}
+
+.yaxis {
+    font: 10px sans-serif;
+}
+/*map styles ends*/
+
+/*sidebar styles*/
+.sidebar{
+    background-image: var(--gradient);
+}
+
+/*sidebar style end*/
+
+.education-path {
+    pointer-events: none;
+}
+
+
+.cancertype{
+    pointer-events: none;
+}
+
+/*.zipHeading{*/
+/*    text-align: center;*/
+/*}*/
+
+/*chart styles in detail panel*/
+
+/* {*/
+/*    border: 1px solid #ccc;*/
+/*}*/
+
+.axis line,
+.axis path {
+    shape-rendering: crispEdges;
+    fill: transparent;
+    stroke: #555;
+}
+.axis text {
+    font-size: 11px;
+}
+
+
+.bar {
+    fill-opacity: 0.5;
+}
+.bar.left {
+    fill: steelblue;
+}
+.bar.right {
+    fill: firebrick;
+}
+.incomeChart{
+    display: block;
+    margin: auto;
+}
+
+
+.insuranceChart{
+    display: block;
+    margin: auto;
+}
+
+
+
+/*.clicked{*/
+/*    fill : white;*/
+/*}*/
+
+/*#option{*/
+/*    border-radius: 2px;*/
+/*}*/
+
+

@@ -1,0 +1,1832 @@
+[
+  {
+    "zip": 60601,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 1.0,
+        "Females": 0.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 23.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 1.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 9.0,
+        "Females": 10.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 15.0,
+        "Females": 10.0
+      }
+    ]
+  },
+  {
+    "zip": 60602,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 0.0,
+        "Females": 1.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 2.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0,
+        "Females": 0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 4.0,
+        "Females": 3.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 2.0,
+        "Females": 1.0
+      }
+    ]
+  },
+  {
+    "zip": 60603,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 0,
+        "Females": 0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 2.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0,
+        "Females": 0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 2.0,
+        "Females": 0.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 2.0,
+        "Females": 0.0
+      }
+    ]
+  },
+  {
+    "zip": 60604,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 0,
+        "Females": 0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0,
+        "Females": 0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0,
+        "Females": 0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 0,
+        "Females": 0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 0.0,
+        "Females": 1.0
+      }
+    ]
+  },
+  {
+    "zip": 60605,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 3.0,
+        "Females": 3.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 34.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 5.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 17.0,
+        "Females": 13.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 24.0,
+        "Females": 27.0
+      }
+    ]
+  },
+  {
+    "zip": 60606,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 0,
+        "Females": 0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 7.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0,
+        "Females": 0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 0.0,
+        "Females": 1.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 1.0,
+        "Females": 0.0
+      }
+    ]
+  },
+  {
+    "zip": 60607,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 2.0,
+        "Females": 4.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 12.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 3.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 15.0,
+        "Females": 18.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 18.0,
+        "Females": 11.0
+      }
+    ]
+  },
+  {
+    "zip": 60608,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 8.0,
+        "Females": 9.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 32.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 20.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 70.0,
+        "Females": 52.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 71.0,
+        "Females": 66.0
+      }
+    ]
+  },
+  {
+    "zip": 60609,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 5.0,
+        "Females": 4.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 29.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 23.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 54.0,
+        "Females": 59.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 94.0,
+        "Females": 79.0
+      }
+    ]
+  },
+  {
+    "zip": 60610,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 8.0,
+        "Females": 10.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 64.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 4.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 43.0,
+        "Females": 38.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 52.0,
+        "Females": 78.0
+      }
+    ]
+  },
+  {
+    "zip": 60611,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 9.0,
+        "Females": 2.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 59.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 3.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 43.0,
+        "Females": 34.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 41.0,
+        "Females": 61.0
+      }
+    ]
+  },
+  {
+    "zip": 60612,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 4.0,
+        "Females": 1.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 23.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 9.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 45.0,
+        "Females": 30.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 62.0,
+        "Females": 51.0
+      }
+    ]
+  },
+  {
+    "zip": 60613,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 9.0,
+        "Females": 6.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 54.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 1.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 29.0,
+        "Females": 34.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 49.0,
+        "Females": 44.0
+      }
+    ]
+  },
+  {
+    "zip": 60614,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 11.0,
+        "Females": 6.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 66.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 3.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 44.0,
+        "Females": 48.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 67.0,
+        "Females": 62.0
+      }
+    ]
+  },
+  {
+    "zip": 60615,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 6.0,
+        "Females": 5.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 53.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 8.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 44.0,
+        "Females": 37.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 60.0,
+        "Females": 78.0
+      }
+    ]
+  },
+  {
+    "zip": 60616,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 1.0,
+        "Females": 5.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 53.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 16.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 81.0,
+        "Females": 74.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 130.0,
+        "Females": 102.0
+      }
+    ]
+  },
+  {
+    "zip": 60617,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 9.0,
+        "Females": 9.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 85.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 29.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 125.0,
+        "Females": 107.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 160.0,
+        "Females": 153.0
+      }
+    ]
+  },
+  {
+    "zip": 60618,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 12.0,
+        "Females": 7.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 81.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 17.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 70.0,
+        "Females": 66.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 93.0,
+        "Females": 89.0
+      }
+    ]
+  },
+  {
+    "zip": 60619,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 11.0,
+        "Females": 5.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 72.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 19.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 102.0,
+        "Females": 127.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 152.0,
+        "Females": 175.0
+      }
+    ]
+  },
+  {
+    "zip": 60620,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 6.0,
+        "Females": 11.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 94.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 31.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 109.0,
+        "Females": 144.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 175.0,
+        "Females": 188.0
+      }
+    ]
+  },
+  {
+    "zip": 60621,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 0.0,
+        "Females": 3.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 23.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 18.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 59.0,
+        "Females": 40.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 94.0,
+        "Females": 78.0
+      }
+    ]
+  },
+  {
+    "zip": 60622,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 8.0,
+        "Females": 3.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 32.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 9.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 30.0,
+        "Females": 26.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 36.0,
+        "Females": 20.0
+      }
+    ]
+  },
+  {
+    "zip": 60623,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 14.0,
+        "Females": 5.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 46.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 24.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 71.0,
+        "Females": 67.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 93.0,
+        "Females": 54.0
+      }
+    ]
+  },
+  {
+    "zip": 60624,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 4.0,
+        "Females": 3.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 37.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 15.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 47.0,
+        "Females": 54.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 93.0,
+        "Females": 79.0
+      }
+    ]
+  },
+  {
+    "zip": 60625,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 5.0,
+        "Females": 11.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 54.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 22.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 82.0,
+        "Females": 71.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 65.0,
+        "Females": 53.0
+      }
+    ]
+  },
+  {
+    "zip": 60626,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 11.0,
+        "Females": 6.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 33.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 8.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 51.0,
+        "Females": 47.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 78.0,
+        "Females": 54.0
+      }
+    ]
+  },
+  {
+    "zip": 60628,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 6.0,
+        "Females": 9.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 91.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 16.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 113.0,
+        "Females": 97.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 188.0,
+        "Females": 137.0
+      }
+    ]
+  },
+  {
+    "zip": 60629,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 13.0,
+        "Females": 12.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 65.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 33.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 101.0,
+        "Females": 91.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 114.0,
+        "Females": 92.0
+      }
+    ]
+  },
+  {
+    "zip": 60630,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 14.0,
+        "Females": 6.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 54.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 11.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 73.0,
+        "Females": 66.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 100.0,
+        "Females": 90.0
+      }
+    ]
+  },
+  {
+    "zip": 60631,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 8.0,
+        "Females": 6.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 37.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 3.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 45.0,
+        "Females": 41.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 66.0,
+        "Females": 73.0
+      }
+    ]
+  },
+  {
+    "zip": 60632,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 13.0,
+        "Females": 5.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 32.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 17.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 86.0,
+        "Females": 48.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 54.0,
+        "Females": 56.0
+      }
+    ]
+  },
+  {
+    "zip": 60633,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 2.0,
+        "Females": 2.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 7.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 3.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 16.0,
+        "Females": 21.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 36.0,
+        "Females": 27.0
+      }
+    ]
+  },
+  {
+    "zip": 60634,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 24.0,
+        "Females": 12.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 56.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 20.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 104.0,
+        "Females": 114.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 130.0,
+        "Females": 133.0
+      }
+    ]
+  },
+  {
+    "zip": 60636,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 2.0,
+        "Females": 1.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 37.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 23.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 62.0,
+        "Females": 70.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 101.0,
+        "Females": 98.0
+      }
+    ]
+  },
+  {
+    "zip": 60637,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 5.0,
+        "Females": 0.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 43.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 18.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 55.0,
+        "Females": 53.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 91.0,
+        "Females": 88.0
+      }
+    ]
+  },
+  {
+    "zip": 60638,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 7.0,
+        "Females": 9.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 44.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 14.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 88.0,
+        "Females": 65.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 118.0,
+        "Females": 114.0
+      }
+    ]
+  },
+  {
+    "zip": 60639,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 11.0,
+        "Females": 7.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 49.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 17.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 80.0,
+        "Females": 63.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 90.0,
+        "Females": 59.0
+      }
+    ]
+  },
+  {
+    "zip": 60640,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 10.0,
+        "Females": 6.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 61.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 16.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 90.0,
+        "Females": 73.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 99.0,
+        "Females": 75.0
+      }
+    ]
+  },
+  {
+    "zip": 60641,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 9.0,
+        "Females": 13.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 42.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 28.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 81.0,
+        "Females": 68.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 100.0,
+        "Females": 84.0
+      }
+    ]
+  },
+  {
+    "zip": 60642,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 0.0,
+        "Females": 3.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 15.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 4.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 11.0,
+        "Females": 10.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 18.0,
+        "Females": 15.0
+      }
+    ]
+  },
+  {
+    "zip": 60643,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 5.0,
+        "Females": 9.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 79.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 16.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 65.0,
+        "Females": 68.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 132.0,
+        "Females": 104.0
+      }
+    ]
+  },
+  {
+    "zip": 60643,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 5.0,
+        "Females": 9.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 79.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 16.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 65.0,
+        "Females": 68.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 132.0,
+        "Females": 104.0
+      }
+    ]
+  },
+  {
+    "zip": 60644,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 7.0,
+        "Females": 2.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 41.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 16.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 72.0,
+        "Females": 67.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 127.0,
+        "Females": 90.0
+      }
+    ]
+  },
+  {
+    "zip": 60645,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 12.0,
+        "Females": 8.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 49.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 11.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 52.0,
+        "Females": 40.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 63.0,
+        "Females": 51.0
+      }
+    ]
+  },
+  {
+    "zip": 60646,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 4.0,
+        "Females": 3.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 28.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 3.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 42.0,
+        "Females": 44.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 40.0,
+        "Females": 69.0
+      }
+    ]
+  },
+  {
+    "zip": 60647,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 6.0,
+        "Females": 5.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 45.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 15.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 62.0,
+        "Females": 49.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 54.0,
+        "Females": 37.0
+      }
+    ]
+  },
+  {
+    "zip": 60649,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 1.0,
+        "Females": 7.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 45.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 15.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 78.0,
+        "Females": 75.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 71.0,
+        "Females": 103.0
+      }
+    ]
+  },
+  {
+    "zip": 60651,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 9.0,
+        "Females": 10.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 55.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 28.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 68.0,
+        "Females": 75.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 98.0,
+        "Females": 86.0
+      }
+    ]
+  },
+  {
+    "zip": 60652,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 5.0,
+        "Females": 7.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 45.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 9.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 56.0,
+        "Females": 44.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 70.0,
+        "Females": 66.0
+      }
+    ]
+  },
+  {
+    "zip": 60653,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 1.0,
+        "Females": 2.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 34.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 13.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 36.0,
+        "Females": 54.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 88.0,
+        "Females": 81.0
+      }
+    ]
+  },
+  {
+    "zip": 60654,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 5.0,
+        "Females": 2.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 11.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 2.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 14.0,
+        "Females": 9.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 8.0,
+        "Females": 17.0
+      }
+    ]
+  },
+  {
+    "zip": 60655,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 5.0,
+        "Females": 3.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 35.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 4.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 33.0,
+        "Females": 37.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 64.0,
+        "Females": 61.0
+      }
+    ]
+  },
+  {
+    "zip": 60656,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 8.0,
+        "Females": 3.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 27.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 6.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 42.0,
+        "Females": 52.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 60.0,
+        "Females": 44.0
+      }
+    ]
+  },
+  {
+    "zip": 60657,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 12.0,
+        "Females": 4.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 64.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 13.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 45.0,
+        "Females": 45.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 50.0,
+        "Females": 53.0
+      }
+    ]
+  },
+  {
+    "zip": 60659,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 7.0,
+        "Females": 3.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 32.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 10.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 35.0,
+        "Females": 48.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 66.0,
+        "Females": 39.0
+      }
+    ]
+  },
+  {
+    "zip": 60660,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 5.0,
+        "Females": 3.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 39.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 8.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 59.0,
+        "Females": 50.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 64.0,
+        "Females": 56.0
+      }
+    ]
+  },
+  {
+    "zip": 60661,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 0,
+        "Females": 0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 8.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 1.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 4.0,
+        "Females": 2.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 4.0,
+        "Females": 0.0
+      }
+    ]
+  },
+  {
+    "zip": 60666,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 8.0,
+        "Females": 3.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 27.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 6.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 42.0,
+        "Females": 52.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 60.0,
+        "Females": 44.0
+      }
+    ]
+  },
+  {
+    "zip": 60707,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 7.0,
+        "Females": 7.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 28.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 11.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 61.0,
+        "Females": 65.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 82.0,
+        "Females": 69.0
+      }
+    ]
+  },
+  {
+    "zip": 60707,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 7.0,
+        "Females": 7.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 28.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 11.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 61.0,
+        "Females": 65.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 82.0,
+        "Females": 69.0
+      }
+    ]
+  },
+  {
+    "zip": 60827,
+    "properties": [
+      {
+        "type": "Nervous Cancer",
+        "Males": 2.0,
+        "Females": 1.0
+      },
+      {
+        "type": "Breast In Situ Cancer",
+        "Males": 0.0,
+        "Females": 30.0
+      },
+      {
+        "type": "Cervix Cancer",
+        "Males": 0.0,
+        "Females": 11.0
+      },
+      {
+        "type": "Colorectal Cancer",
+        "Males": 15.0,
+        "Females": 30.0
+      },
+      {
+        "type": "Lung and Bronchus Cancer",
+        "Males": 41.0,
+        "Females": 34.0
+      }
+    ]
+  }
+]
