@@ -22,7 +22,7 @@ var educationFlag = 0;
 
 
 var color = d3.scale.quantile()
-        .range(["#ffffff","f0f0f0","#d9d9d9","#bdbdbd","#969696","#737373","#525252"]);
+    .range(["#ffffff","f0f0f0","#d9d9d9","#bdbdbd","#969696","#737373","#525252"]);
 //     .range(["#eff3ff","#c6dbef","#9ecae1","#6baed6","#4292c6","#2171b5","#084594"]);
 
 // var color = d3.scaleSequential()
@@ -212,7 +212,7 @@ d3.json("map.geojson", function(json) {
         //     fillColor : color(feature.properties.totalCancer)
         //
         // })
-    // console.log(cancerType.length);
+        // console.log(cancerType.length);
         updateMap(cancerType);
         legendUpdate(cancerType);
     };
@@ -274,8 +274,10 @@ d3.json("map.geojson", function(json) {
             .data(json.features)
             .enter().append('path')
             .attr('d', path)
-            .attr('vector-effect', 'non-scaling-stroke')
             .attr('class', 'region-path')
+            .attr('vector-effect', 'non-scaling-stroke')
+            .style("stroke", "#636363")
+            .style('stroke-width', "1px")
             .style("fill",function(d){
                 if(cancerType=="Total Cancer"){
                     var val = d.properties.totalCancer;
@@ -302,8 +304,6 @@ d3.json("map.geojson", function(json) {
                     color.domain([0, 100]);
                     return color(val);}
             })
-            .style("stroke", "#636363")
-            .style('stroke-width', "1px")
             .on('mouseover', function(d){
                 tooltip.transition()
                     .duration(200)
@@ -347,6 +347,7 @@ d3.json("map.geojson", function(json) {
                 if(iscompare == 1){
 
                     if(lastChanged == 2){
+                        console.log("isCompare1 last changes2")
 
 
                         d3.selectAll(".clicked1")
@@ -375,6 +376,7 @@ d3.json("map.geojson", function(json) {
                         lastChanged = 1;
                     }
                     else{
+                        console.log("isCompare1 last changes1")
 
                         d3.selectAll(".clicked2")
                             .classed("clicked2", false)
@@ -407,7 +409,7 @@ d3.json("map.geojson", function(json) {
                 }
                 else{
 
-
+                    console.log("isCompareoff last changes2")
                     d3.selectAll(".clicked1")
                         .classed("clicked1", false)
                         .style('stroke', '#636363')
@@ -461,22 +463,7 @@ d3.json("map.geojson", function(json) {
             .attr('opacity',1);
     }
 
-
-    d3.select("#cancer-range").on("input", function () {
-
-        var sliderValue = d3.select("#cancer-range").property("value")/100;
-
-        svg.selectAll('.region-path')
-            .transition()
-            .duration(300)
-            .ease("linear")
-            .style("opacity", sliderValue);
-
-
-        document.getElementById("cancer-slider-number").innerText = sliderValue});
-
-
-        //add a legend
+    //add a legend
     function legendUpdate(cancerType){
         var w = 120, h= 200;
         d3.selectAll('.legend').remove();
@@ -484,14 +471,13 @@ d3.json("map.geojson", function(json) {
 
         d3.select(".map").append('g')
             .attr("width",40)
-            .attr("height",60)
+            .attr("height",50)
             .attr("class","text cancer-legend-heading")
             .append('text')
             .attr("x","3%")
             .attr("y","55%")
             .attr("font-size",'15px')
-            .text('Cancer Incidences');
-            // .call(wrap, 40);
+            .text('Cancer Rates');
 
 
         var key = d3.select(".map")
@@ -547,7 +533,7 @@ d3.json("map.geojson", function(json) {
                 .range([h, 0])
                 .domain([0,40
                 ]);
-            }
+        }
         else if(cancerType == "Colorectal"){
             var y = d3.scale.linear()
                 .range([h, 0])
@@ -557,7 +543,7 @@ d3.json("map.geojson", function(json) {
             var y = d3.scale.linear()
                 .range([h, 0])
                 .domain([0,400]);
-           }
+        }
         else{
             var y = d3.scale.linear()
                 .range([h, 0])
@@ -648,14 +634,14 @@ d3.json("map.geojson", function(json) {
                         })
                         .attr("fill", "#006d2c")
                         .attr("opacity", 1);
-                            // function (d) {
-                            // if (d[1] > 0 && d[1] <= 5) {
-                            //     return 1;}
-                            // else if (d[1] > 5 && d[1] <= 19) {
-                            //     return 0.7;}
-                            // else {
-                            //     return 0.4;}
-                            // });
+                    // function (d) {
+                    // if (d[1] > 0 && d[1] <= 5) {
+                    //     return 1;}
+                    // else if (d[1] > 5 && d[1] <= 19) {
+                    //     return 0.7;}
+                    // else {
+                    //     return 0.4;}
+                    // });
 
 
                     // var legendGrocery = d3.select("#sidebar-right").
@@ -710,76 +696,7 @@ d3.json("map.geojson", function(json) {
                     //
                     // };
 
-                    d3.select("#sidebar-right")
-                        .append('svg')
-                        .attr("width",$("#sidebar-right").width())
-                        .attr("height",25)
-                        .attr("transform", "translate(0,80)")
-                        .attr("id", "grocery-legend-text")
-                        .append('g')
-                        .attr("class","text")
-                        .append('text')
-                        .attr('x', 0)
-                        .attr('y', "55%")
-                        .style("text-anchor", "start")
-                        .attr("font-size",'15px')
-                        .text('Grocery Stores');
 
-
-                    var legendGrocery = d3.select("#sidebar-right").
-                    append('svg').
-                    attr("width", $("#sidebar-right").width()).
-                    attr("height", 100).
-                    attr('class', 'grocery-legend').
-                    attr("transform", "translate(0,80)").
-                    append("g");
-                    var data = [];
-
-
-                    for (var i = 0; i < 3; i++) {
-
-                        legendGrocery
-                            .append("circle").
-                        attr("cy",
-                            function (d) {
-                                if (i==0) {
-                                    return 10;}
-                                else
-                                {return i*30;}
-                            }).
-                        attr("cx", 15).
-                        attr("r", function (d) {
-                            if (i==0) {
-                                return "2px";}
-                            else if (i==1) {
-                                return "5px";}
-                            else {
-                                return "12px";}
-                        }).
-                        style("fill", "green")
-                            .style("opacity", "0.9");
-                        // attr("transform", "translate(10,100)");//color
-
-
-
-                        legendText = ['<= 5', '> 5 & <= 19', '> 20']
-
-
-                        legendGrocery.append("text")
-                        // .data(legendText)
-                            .attr("y", function (d) {
-                                if (i==0) {
-                                    return 10;}
-                                else
-                                {return i*30;}
-                            })
-                            .attr("x", 30)
-                            .attr("dy", ".35em")
-                            .style("text-anchor", "start")
-                            .style("font" ,"10px sans-serif")
-                            .text(String(legendText[i]));
-
-                    };
                 })
             })
         }
@@ -790,13 +707,7 @@ d3.json("map.geojson", function(json) {
                 .style("background-color", "white");
 
             svg.selectAll(".groceryCircle").remove();
-
-
-            d3.selectAll('.grocery-legend').remove()
-            d3.selectAll('#grocery-legend-text').remove()
         }
-
-
 
 
         d3.select("#grocery-range").on("input", function () {
@@ -856,17 +767,17 @@ d3.json("map.geojson", function(json) {
                     .attr('d', path)
                     .attr('class','income-path')
                     .transition()
-                // svg.selectAll("circle")
-                //     .data(json.features).enter()
-                //     .append("circle")
-                //     .attr('class','income-path')
-                //     .attr("cx", function (d) {
-                //         // d = [d[2], d[3]];
-                //         return path.centroid(d)[0]; })
-                //     .attr("cy", function (d) {
-                //         // d = [d[2], d[3]];
-                //         return path.centroid(d)[1];})
-                //     .attr("r", "2px")
+                    // svg.selectAll("circle")
+                    //     .data(json.features).enter()
+                    //     .append("circle")
+                    //     .attr('class','income-path')
+                    //     .attr("cx", function (d) {
+                    //         // d = [d[2], d[3]];
+                    //         return path.centroid(d)[0]; })
+                    //     .attr("cy", function (d) {
+                    //         // d = [d[2], d[3]];
+                    //         return path.centroid(d)[1];})
+                    //     .attr("r", "2px")
 
                     //
                     .attr("transform", function (d) {
@@ -881,14 +792,14 @@ d3.json("map.geojson", function(json) {
                             return "translate(" + x + "," + y + ")"
                                 + "scale(" + scale_factor + ")"
                                 + "translate(" + -x + "," + -y + ")";
-                            }
+                        }
                     })
                     .style('fill', function(d){
                         var incomePercent;
                         for(var i =0; i < income.length ; i++){
-                           if(income[i].zip == +(d.properties.zip)){
-                               incomePercent = income[i].percent;
-                           }
+                            if(income[i].zip == +(d.properties.zip)){
+                                incomePercent = income[i].percent;
+                            }
                         }
 
                         return color(incomePercent)
@@ -964,7 +875,7 @@ d3.json("map.geojson", function(json) {
 
                     legendText = ['+50% ', ' Avg', '-25%', '-50%', '-75%']
                     legendIncome.append("text")
-                        // .data(legendText)
+                    // .data(legendText)
                         .attr("x", i* 27)
                         .attr("y", 30)
                         .attr("dy", ".35em")
@@ -980,7 +891,7 @@ d3.json("map.geojson", function(json) {
 
 
 
-    }
+        }
         else{
             incomeFlag = 0;
 
@@ -1009,7 +920,7 @@ d3.json("map.geojson", function(json) {
 
         });
 
-        }
+    }
 
 
 
@@ -1044,179 +955,116 @@ d3.json("map.geojson", function(json) {
                 // d3.csv('data/filteredIncome.csv', function (income) {
 
 
-                    // var colorRange = ["#045a8d", "#fdcc8a", "#fc8d59", "#e34a33", "#b30000"];
-                    // var color = d3.scale.quantize()
-                    //     .domain([-.75, .40])
-                    //     .range(["#b30000", "#e34a33", "#fc8d59", "#fdcc8a", "#045a8d"]);
+                // var colorRange = ["#045a8d", "#fdcc8a", "#fc8d59", "#e34a33", "#b30000"];
+                // var color = d3.scale.quantize()
+                //     .domain([-.75, .40])
+                //     .range(["#b30000", "#e34a33", "#fc8d59", "#fdcc8a", "#045a8d"]);
 
-                    //
-                    // income.forEach(function (d) {
-                    //     d.percent = (d.medianIncome - 83890) / 83890;
-                    // })
+                //
+                // income.forEach(function (d) {
+                //     d.percent = (d.medianIncome - 83890) / 83890;
+                // })
 
 
-                    var color = d3.scale.quantile()
-                        // .range(["#eff3ff","#c6dbef","#9ecae1","#6baed6","#4292c6","#2171b5","#084594"]);
-                        .range(["#f2f0f7","#dadaeb","#bcbddc","#9e9ac8","#807dba","#6a51a3"]);
+                var color = d3.scale.quantile()
+                // .range(["#eff3ff","#c6dbef","#9ecae1","#6baed6","#4292c6","#2171b5","#084594"]);
+                    .range(["#f2f0f7","#dadaeb","#bcbddc","#9e9ac8","#807dba","#6a51a3"]);
 
-                    color.domain([600, 85000]);
-                    //
-                    // color.domain([
-                    //     d3.min(edTotal, function(d){ return d.total_educated_population; }),
-                    //     d3.max(edTotal, function(d){ return d.total_educated_population; })
-                    // ]);
+                color.domain([600, 85000]);
+                //
+                // color.domain([
+                //     d3.min(edTotal, function(d){ return d.total_educated_population; }),
+                //     d3.max(edTotal, function(d){ return d.total_educated_population; })
+                // ]);
 
-                    console.log(d3.min(edTotal, function(d){ return d.total_educated_population; }))
-                    console.log(d3.max(edTotal, function(d){ return d.total_educated_population; }))
+                console.log(d3.min(edTotal, function(d){ return d.total_educated_population; }))
+                console.log(d3.max(edTotal, function(d){ return d.total_educated_population; }))
 
-                    svg.append('g')
-                        .selectAll('path')
-                        .data(json.features)
-                        .enter().append('path')
-                        .attr('d', path)
-                        .attr('class', 'education-path')
-                        .transition()
+                svg.append('g')
+                    .selectAll('path')
+                    .data(json.features)
+                    .enter().append('path')
+                    .attr('d', path)
+                    .attr('class', 'education-path')
+                    .transition()
 
-                        .attr("transform", function (d) {
+                    .attr("transform", function (d) {
 
-                            var centroid = path.centroid(d),
-                                x = centroid[0],
-                                y = centroid[1];
-                            if (isNaN(x) || isNaN(y))
-                                return null;
-                            else {
+                        var centroid = path.centroid(d),
+                            x = centroid[0],
+                            y = centroid[1];
+                        if (isNaN(x) || isNaN(y))
+                            return null;
+                        else {
 
-                                // for (var i = 0; i < edTotal.length; i++) {
-                                //     // console.log(scale)
-                                //     if (edTotal[i].zip == +(d.properties.zip)) {
-                                //         var scale = edTotal[i].scale;
-                                //     }
-                                // }
-                                var scale = 0.965;
-                                // console.log(scale)
-                                return "translate(" + x + "," + y + ")"
-                                    + "scale(" + scale + ")"
-                                    + "translate(" + -x + "," + -y + ")";
+                            // for (var i = 0; i < edTotal.length; i++) {
+                            //     // console.log(scale)
+                            //     if (edTotal[i].zip == +(d.properties.zip)) {
+                            //         var scale = edTotal[i].scale;
+                            //     }
+                            // }
+                            var scale = 0.97;
+                            // console.log(scale)
+                            return "translate(" + x + "," + y + ")"
+                                + "scale(" + scale + ")"
+                                + "translate(" + -x + "," + -y + ")";
+                        }
+
+
+                        // .scale(width *85)
+                        //         .translate([width/1.6, height/2.7]);
+
+                    })
+                    .style('fill', function (d) {
+                        var educatedpeople;
+                        for (var i = 0; i < edTotal.length; i++) {
+                            if (edTotal[i].zip == +(d.properties.zip)) {
+                                educatedpeople = edTotal[i].total_educated_population;
                             }
+                        }
+                        console.log(color(educatedpeople));
+                        return color(educatedpeople);
+                    })
+                    .style("opacity", 1);
+                // .style("stroke", "#636363")
+                // .style('stroke-width', "0.5px");
+
+                // d3.selectAll('.income-legend').remove()
+                //
+                // var legendIncome = d3.select("#sidebar-right").
+                // append('svg').
+                // attr("width", $("#sidebar-right").width()).
+                // attr("height", 50).
+                // attr('class', 'income-legend').
+                // attr("transform", "translate(0,80)").
+                // append("g");
+                //
+                //
+                // for (var i = 0; i < 5; i++) {
+                //     legendIncome.append("g:rect").
+                //     attr("x", i*27).
+                //     attr("height", 20).
+                //     attr("width", 27).
+                //     style("fill", colorRange[i])
+                //         .style("opacity", "0.9");
+                //     // attr("transform", "translate(10,100)");//color
+                //
+                //
+                //
+                //     legendText = ['+50% ', ' Avg', '-25%', '-50%', '-75%']
+                //     legendIncome.append("text")
+                //     // .data(legendText)
+                //         .attr("x", i* 27)
+                //         .attr("y", 30)
+                //         .attr("dy", ".35em")
+                //         .style("text-anchor", "start")
+                //         .style("font" ,"10px sans-serif")
+                //         .text(String(legendText[i]));
+                //
+                // };
 
 
-                            // .scale(width *85)
-                            //         .translate([width/1.6, height/2.7]);
-
-                        })
-                        .style('fill', function (d) {
-                            var educatedpeople;
-                            for (var i = 0; i < edTotal.length; i++) {
-                                if (edTotal[i].zip == +(d.properties.zip)) {
-                                    educatedpeople = edTotal[i].total_educated_population;
-                                }
-                            }
-                            console.log(educatedpeople);
-                            return color(educatedpeople);
-                        })
-                        .style("opacity", 1);
-                        // .style("stroke", "#636363")
-                        // .style('stroke-width', "0.5px");
-
-                    // d3.selectAll('.income-legend').remove()
-                    //
-                    // var legendIncome = d3.select("#sidebar-right").
-                    // append('svg').
-                    // attr("width", $("#sidebar-right").width()).
-                    // attr("height", 50).
-                    // attr('class', 'income-legend').
-                    // attr("transform", "translate(0,80)").
-                    // append("g");
-                    //
-                    //
-                    // for (var i = 0; i < 5; i++) {
-                    //     legendIncome.append("g:rect").
-                    //     attr("x", i*27).
-                    //     attr("height", 20).
-                    //     attr("width", 27).
-                    //     style("fill", colorRange[i])
-                    //         .style("opacity", "0.9");
-                    //     // attr("transform", "translate(10,100)");//color
-                    //
-                    //
-                    //
-                    //     legendText = ['+50% ', ' Avg', '-25%', '-50%', '-75%']
-                    //     legendIncome.append("text")
-                    //     // .data(legendText)
-                    //         .attr("x", i* 27)
-                    //         .attr("y", 30)
-                    //         .attr("dy", ".35em")
-                    //         .style("text-anchor", "start")
-                    //         .style("font" ,"10px sans-serif")
-                    //         .text(String(legendText[i]));
-                    //
-                    // };
-
-                var w = 120, h= 120;
-                // d3.selectAll('.legend').remove();
-                // d3.selectAll('.cancer-legend-heading').remove();
-
-                d3.select(".map").append('g')
-                    .attr("width",40)
-                    .attr("height",50)
-                    .attr("class","text education-legend-heading")
-                    .append('text')
-                    .attr("x","20%")
-                    .attr("y","68%")
-                    .attr("font-size",'12px')
-                    .text('People Educated');
-
-
-                var key = d3.select(".map")
-                    .append("g")
-                    .attr("width",w)
-                    .attr("height",h)
-                    .attr("class","education-legend");
-
-                var legend = key.append("defs")
-                    .append("svg:linearGradient")
-                    .attr("id","education-gradient")
-                    .attr("x1","100%")
-                    .attr("y1", "0%")
-                    .attr("x2", "100%")
-                    .attr("y2", "100%")
-                    .attr("spreadMethod", "pad");
-
-                legend.append("stop")
-                    .attr("offset", "0%")
-                    .attr("stop-color", "#6a51a3")
-                    .attr("stop-opacity", 1);
-
-                legend.append("stop")
-                    .attr("offset", "100%")
-                    .attr("stop-color", "#f2f0f7")
-                    .attr("stop-opacity", 1);
-
-
-                key.append("rect")
-                    .attr("width", w - 100)
-                    .attr("height", h)
-                    .style("fill", "url(#education-gradient)")
-                    // .style("font-color","2px")
-                    .attr("transform", "translate(100,460)");
-
-
-
-                var y = d3.scale.linear()
-                    .range([h, 0])
-                    .domain([0, 85000]);
-
-                var yAxis = d3.svg.axis().scale(y).orient("right").ticks(6).tickSize(6,0);
-                // d3.axisRight(y);
-
-                key.append("g")
-                    .attr("class", "yaxis")
-                    .attr("transform", "translate(115,460)")
-                    .call(yAxis);
-
-                })
-
-
+            })
 
             // })
         }
@@ -1227,8 +1075,7 @@ d3.json("map.geojson", function(json) {
                 .style("background-color", "white");
 
             d3.selectAll('.education-path').remove()
-            d3.selectAll('.education-legend').remove()
-            d3.selectAll('.education-legend-heading').remove()
+            // d3.selectAll('.income-legend').remove()
 
         }
 
@@ -1345,8 +1192,8 @@ function incomeChart(zipSelect, container){
     //
     // }
     // else{
-        d3.select(container).selectAll('.incomeNumber').remove();
-        d3.selectAll('.income-heading').remove();
+    d3.select(container).selectAll('.incomeNumber').remove();
+    d3.selectAll('.income-heading').remove();
 
     // }
 
@@ -1401,33 +1248,33 @@ function incomeChart(zipSelect, container){
                 return "Average Income: " + medianIncome + " $"
             })
 
-            // .append("g")
-            // .attr("transform",'translate(' + widthIncome/3 + ',0)')
-            // .selectAll('rect')
-            // .data(data)
-            // .enter().append("rect")
-            // .attr("class", "inner-income-rect")
-            // .attr("width",x)
-            // .attr("height",8)
-            // .attr("rx", 5) // rounded corners
-            // .attr("ry", 5)
-            // .attr('fill','#ec7014')
-            // .on("mouseover", function (d) {
-            //
-            //     tooltipIncomePlot.transition()
-            //         .duration(200)
-            //         .style("opacity",0.9);
-            //
-            //     tooltipIncomePlot.html("Median Income: " + medianIncome + " $" )
-            //         .style("left", (d3.event.pageX) + "px")
-            //         .style("top", (d3.event.pageY+18) + "px");
-            // })
-            // .on("mouseout", function(d) {
-            //     tooltipIncomePlot.transition()
-            //         .duration(500)
-            //         .style("opacity", 0);
-            //
-            // });
+        // .append("g")
+        // .attr("transform",'translate(' + widthIncome/3 + ',0)')
+        // .selectAll('rect')
+        // .data(data)
+        // .enter().append("rect")
+        // .attr("class", "inner-income-rect")
+        // .attr("width",x)
+        // .attr("height",8)
+        // .attr("rx", 5) // rounded corners
+        // .attr("ry", 5)
+        // .attr('fill','#ec7014')
+        // .on("mouseover", function (d) {
+        //
+        //     tooltipIncomePlot.transition()
+        //         .duration(200)
+        //         .style("opacity",0.9);
+        //
+        //     tooltipIncomePlot.html("Median Income: " + medianIncome + " $" )
+        //         .style("left", (d3.event.pageX) + "px")
+        //         .style("top", (d3.event.pageY+18) + "px");
+        // })
+        // .on("mouseout", function(d) {
+        //     tooltipIncomePlot.transition()
+        //         .duration(500)
+        //         .style("opacity", 0);
+        //
+        // });
 
         // d3.select(container).selectAll("rect.inner-income-rect:nth-of-type(2)")
         //     .attr("fill","#fdd0a2")
@@ -1439,7 +1286,7 @@ function incomeChart(zipSelect, container){
 function educationChart(zipSelect, container){
 
     // if(iscompare == 0){
-        d3.select(container).selectAll('.waffleChart').remove();
+    d3.select(container).selectAll('.waffleChart').remove();
     // }
 
     d3.csv('data/filteredEducation.csv', function(education){
@@ -1556,7 +1403,7 @@ function educationChart(zipSelect, container){
 //insurance Chart
 function insuranceChart(zipSelect, container){
     // if(iscompare == 0){
-        d3.select(container).selectAll('.insuranceChart').remove();
+    d3.select(container).selectAll('.insuranceChart').remove();
     // }
 
 
@@ -1592,7 +1439,7 @@ function insuranceChart(zipSelect, container){
             .text(function(d){
                 return "People Insured: " + insValue + "%";
             })
-            // .call(wrap, );
+        // .call(wrap, );
 
 
 
@@ -1606,7 +1453,7 @@ function groceryNumber(zipSelect,container) {
 
 
     // if(iscompare == 0){
-        d3.select(container).selectAll('.groceryNumber').remove();
+    d3.select(container).selectAll('.groceryNumber').remove();
     // }
     d3.csv('data/groceryStores.csv', function (grocery) {
 
@@ -1639,7 +1486,7 @@ function groceryNumber(zipSelect,container) {
                     return "Grocery Stores: " + 0;
                 }
                 else{
-                return "Grocery Stores: " + groceryValue;}
+                    return "Grocery Stores: " + groceryValue;}
             });
 
     })
@@ -1671,7 +1518,7 @@ function cancerPyramindChart(zipSelect, container) {
 
     d3.json('data/cancerTypesCount.json', function (cancerTypesCount) {
 
-    console.log(cancerTypesCount);
+        console.log(cancerTypesCount);
         var cancerCount = [];
         for(var i=0; i<cancerTypesCount.length; i++) {
             if (cancerTypesCount[i].zip == zipSelect) {
@@ -1680,107 +1527,129 @@ function cancerPyramindChart(zipSelect, container) {
             }
         }
 
-    var maxValue = Math.max(
-        d3.max(cancerCount, function (d) { return d.male}),
-        d3.max(cancerCount, function (d) { return d.female})
-    );
+        var maxValue = Math.max(
+            d3.max(cancerCount, function (d) { return d.male}),
+            d3.max(cancerCount, function (d) { return d.female})
+        );
         console.log(cancerCount)
 
-    var stackedCancerChart = d3.select(container)
-        .append("svg")
-        .attr('class','cancerPlots')
-        .attr("width", margin.left + width + margin.right )
-        .attr("height", margin.top + height + margin.bottom )
-        .append("g")
-        .attr('class', 'cancer-plot-inner-region')
-        .attr('transform','translate(' + margin.left + ',0)');
+        var stackedCancerChart = d3.select(container)
+            .append("svg")
+            .attr('class','cancerPlots')
+            .attr("width", margin.left + width + margin.right )
+            .attr("height", margin.top + height + margin.bottom )
+            .append("g")
+            .attr('class', 'cancer-plot-inner-region')
+            .attr('transform','translate(' + margin.left + ',0)');
 
 // SET UP SCALES
 
 // the xScale goes from 0 to the width of a region
 //  it will be reversed for the left x-axis
+        if(lastChanged ==2){
+            var xScale = d3.scale.linear()
+                .domain([0,400])
+                // , d3.max(cancerCount, function (d) { return d.Males + d.Females})])
+                .range([width,0]);}
+        else{
+            var xScale = d3.scale.linear()
+                .domain([0,400])
+                // , d3.max(cancerCount, function (d) { return d.Males + d.Females})])
+                .range([0,width]);
+        }
 
-    var xScale = d3.scale.linear()
-        .domain([0,400])
-            // , d3.max(cancerCount, function (d) { return d.Males + d.Females})])
-        .range([0,width])
-        .nice();
+        // .nice();
 
-    // var xScaleLeft = d3.scale.linear()
-    //     .domain([0, 200])
-    //     .range([regionWidth, 0]);
-    //
-    // var xScaleRight = d3.scale.linear()
-    //     .domain([0, 200])
-    //     .range([0, regionWidth]);
+        // var xScaleLeft = d3.scale.linear()
+        //     .domain([0, 200])
+        //     .range([regionWidth, 0]);
+        //
+        // var xScaleRight = d3.scale.linear()
+        //     .domain([0, 200])
+        //     .range([0, regionWidth]);
 
-    var yScale = d3.scale.ordinal()
-        .domain(cancerCount.map(function(d) { return d.type; }))
-        .rangeRoundBands([height,0], 0.1);
+        var yScale = d3.scale.ordinal()
+            .domain(cancerCount.map(function(d) { return d.type; }))
+            .rangeRoundBands([height,0], 0.1);
 
 
-    var color = d3.scale.ordinal()
-        .range(["#C9A0A9","#84AFDD"]);
+        var color = d3.scale.ordinal()
+            .range(["#C9A0A9","#84AFDD"]);
 
 
 
-    var segments = ['Females','Males'];
-    cancerCount.sort(function(a, b) { return b.total - a.total; });
+        var segments = ['Females','Males'];
+        cancerCount.sort(function(a, b) { return b.total - a.total; });
 
-    color.domain(segments)
+        color.domain(segments)
 
-    var layers = d3.layout.stack()(segments.map(function (c) {
-        return cancerCount.map(function (d){
-            return {x: d['type'], y: +d[c], component: c};
-        })
-    }))
-    console.log(layers);
+        var layers = d3.layout.stack()(segments.map(function (c) {
+            return cancerCount.map(function (d){
+                return {x: d['type'], y: +d[c], component: c};
+            })
+        }))
+        console.log(lastChanged);
 
 
 
 
         stackedCancerChart.append('g')
-        .selectAll('g')
-        .data(layers)
-        .enter().append('g')
+            .selectAll('g')
+            .data(layers)
+            .enter().append('g')
+        //     .attr("transform", function(d,i){
+        //         return "translate(0, " + i* 20 + ")";
+        //     })
+            .attr('class', 'cancerTypeStackedChart')
+            .attr('fill', function (d,i) {
+                return color(i)
+            })
+            .selectAll('rect')
+            .data(function (d) {
+                return d
+            })
+            .enter().append("rect")
+            .attr("y", function(d) { return yScale(d.x); })
+            .attr("x", function(d) {
+                if(lastChanged ==2){
+                    return xScale(d.y0 + d.y); }
+                else{
+                    return xScale(d.y0);
+                }
+            })
+            .attr("width", function(d) {
+                if(lastChanged ==2){
+                    return width - xScale(d.y);  }
+                else{
+                    return xScale(d.y);
+                }
 
-        .attr('class', 'cancerTypeStackedChart')
-        .attr('fill', function (d,i) {
-            return color(i)
-        })
-        .selectAll('rect')
-        .data(function (d) {
-            return d
-        })
-        .enter().append("rect")
-        .attr("y", function(d) { return yScale(d.x); })
-        .attr("x", function(d) {return xScale(d.y0); })
-        .attr("width", function(d) {return xScale(d.y) })
-        .attr("height", yScale.rangeBand())
-        .on("mouseover", function (d) {
+            })
+            .attr("height", yScale.rangeBand())
+            .on("mouseover", function (d) {
 
-            tooltipCancerPlot.transition()
-                .duration(200)
-                .style("opacity",0.9);
+                tooltipCancerPlot.transition()
+                    .duration(200)
+                    .style("opacity",0.9);
 
-            tooltipCancerPlot.html(d.component+ ": " + d.y )
-                .style("left", (d3.event.pageX) + "px")
-                .style("top", (d3.event.pageY+18) + "px");
-        })
-        .on("mouseout", function(d) {
-            tooltipCancerPlot.transition()
-                .duration(500)
-                .style("opacity", 0);
+                tooltipCancerPlot.html(d.component+ ": " + d.y )
+                    .style("left", (d3.event.pageX) + "px")
+                    .style("top", (d3.event.pageY+18) + "px");
+            })
+            .on("mouseout", function(d) {
+                tooltipCancerPlot.transition()
+                    .duration(500)
+                    .style("opacity", 0);
 
-        });
-
+            });
+        console.log(lastChanged);
 
 
 // SET UP AXES
-    var yAxis = d3.svg.axis()
-        .scale(yScale)
-        .orient('right')
-        .tickSize(4,0);
+        var yAxis = d3.svg.axis()
+            .scale(yScale)
+            .orient('right')
+            .tickSize(4,0);
         // .tickPadding(margin.middle - 4);
 //
 //     var yAxisRight = d3.svg.axis()
@@ -1789,11 +1658,11 @@ function cancerPyramindChart(zipSelect, container) {
 //         .tickSize(4,0)
 //         .tickFormat('');
 //
-    var xAxis = d3.svg.axis()
-        .scale(xScale)
-        .orient('bottom')
-        .ticks(5)
-        .tickFormat(d3.format(''));
+        var xAxis = d3.svg.axis()
+            .scale(xScale)
+            .orient('bottom')
+            .ticks(5)
+            .tickFormat(d3.format(''));
 //
 //     var xAxisLeft = d3.svg.axis()
 //     // REVERSE THE X-AXIS SCALE ON THE LEFT SIDE BY REVERSING THE RANGE
@@ -1802,7 +1671,7 @@ function cancerPyramindChart(zipSelect, container) {
 //         .ticks(3)
 //         .tickFormat(d3.format(''));
 
-    // MAKE GROUPS FOR EACH SIDE OF CHART
+        // MAKE GROUPS FOR EACH SIDE OF CHART
 // scale(-1,1) is used to reverse the left side so the bars grow left instead of right
 //     var leftBarGroup = pyramidChart.append('g')
 //         .attr('transform', translation(pointA, 0) + 'scale(-1,1)');
@@ -1823,113 +1692,113 @@ function cancerPyramindChart(zipSelect, container) {
 //
 //
 // //
-    stackedCancerChart.append('g')
-        .attr('class', 'axis y cancertype')
-        .attr('transform', 'translate(0, 0)')
-        .call(yAxis);
+        stackedCancerChart.append('g')
+            .attr('class', 'axis y cancertype')
+            .attr('transform', 'translate(0, 0)')
+            .call(yAxis);
 
-    stackedCancerChart.append('g')
-        .attr('class', 'axis x')
-        .attr('transform', 'translate(0, ' + height + ')')
-        .call(xAxis);
+        stackedCancerChart.append('g')
+            .attr('class', 'axis x')
+            .attr('transform', 'translate(0, ' + height + ')')
+            .call(xAxis);
 //
 //     pyramidChart.append('g')
 //         .attr('class', 'axis x right')
 //         .attr('transform', translation(pointB, height))
 //         .call(xAxisRight);
 
-    var tooltipCancerPlot = d3.select("#tooltip-cancer-plot")
-        .attr("class", "tooltip")
-        .style("opacity", 0);
+        var tooltipCancerPlot = d3.select("#tooltip-cancer-plot")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
 
 //----------------------------------------------------
 //     var segments = ['male', 'female']
 
         // var series = d3.layout.stack().keys(cancerCount.columns.slice(1))(cancerCount)
         // console.log(series)
-    //
-    //     var layers = d3.layout.stack()(segments.map(function (c) {
-    //         return cancerCount.map(function (d) {
-    //             return {x: [d.type], y: +d[c], component: c};
-    //         });
-    //     }));
-    //
-    //     console.log(layers);
-    //
-    //     // color.domain(segmentsStacked);
-    //
-    //     var tooltipRacePlot = d3.select("#tooltip-race-plot")
-    //         .attr("class", "tooltip")
-    //         .style("opacity", 0);
-    //
-    //     // xScale.domain([0, d3.max(layers, function(d) {return d[0]["y"] + d[0]["y0"];})]).nice();
-    //     xScale.domain([0, 100]).nice();
-    //     yScale.domain(layers[0].map(function(d) { return d.x; }));
-    //
-    //
-    //     d3.max(layers, function(d) {return d[0]["y"] + d[0]["y0"];})
-    //
-    //     //----------------------------------------------------
-    //
-    //     leftBarGroup.selectAll('.bar.left')
-    //     .data(layers)
-    //     .enter().append('rect')
-    //     .attr('class', 'bar left')
-    //         .attr("y", function(d) { return yScale(d.x); })
-    //         .attr("x", function(d) {return xScale(d.y0); })
-    //         .attr("width", function(d) {return xScale(d.y); })
-    //         .attr("height", yScale.rangeBand())
-    //     // .attr('x', 0)
-    //     // .attr('y', function(d) { return yScale(d.type); })
-    //     // .attr('width', function(d) { return xScale(d.male); })
-    //     // .attr('height', yScale.rangeBand())
-    //     .on("mouseover", function (d) {
-    //
-    //         tooltipCancerPlot.transition()
-    //             .duration(200)
-    //             .style("opacity",0.9);
-    //
-    //         tooltipCancerPlot.html("Males: " + d.male )
-    //             .style("left", (d3.event.pageX) + "px")
-    //             .style("top", (d3.event.pageY+18) + "px");
-    //     })
-    //     .on("mouseout", function(d) {
-    //         tooltipCancerPlot.transition()
-    //             .duration(500)
-    //             .style("opacity", 0);
-    //
-    //     });
-    //
-    // rightBarGroup.selectAll('.bar.right')
-    //     .data(cancerCount)
-    //     .enter().append('rect')
-    //     .attr('class', 'bar right')
-    //     .attr('x', 0)
-    //     .attr('y', function(d) { return yScale(d.type); })
-    //     .attr('width', function(d) { return xScale(d.female); })
-    //     .attr('height', yScale.rangeBand())
-    //     .on("mouseover", function (d) {
-    //
-    //         tooltipCancerPlot.transition()
-    //             .duration(200)
-    //             .style("opacity",0.9);
-    //
-    //         tooltipCancerPlot.html("Females: " + d.female )
-    //             .style("left", (d3.event.pageX) + "px")
-    //             .style("top", (d3.event.pageY+18) + "px");
-    //     })
-    //     .on("mouseout", function(d) {
-    //         tooltipCancerPlot.transition()
-    //             .duration(500)
-    //             .style("opacity", 0);
-    //
-    //     });
-    //
-    //
-    // function translation(x,y) {
-    //     return 'translate(' + x + ',' + y + ')';
-    // }
-    //
+        //
+        //     var layers = d3.layout.stack()(segments.map(function (c) {
+        //         return cancerCount.map(function (d) {
+        //             return {x: [d.type], y: +d[c], component: c};
+        //         });
+        //     }));
+        //
+        //     console.log(layers);
+        //
+        //     // color.domain(segmentsStacked);
+        //
+        //     var tooltipRacePlot = d3.select("#tooltip-race-plot")
+        //         .attr("class", "tooltip")
+        //         .style("opacity", 0);
+        //
+        //     // xScale.domain([0, d3.max(layers, function(d) {return d[0]["y"] + d[0]["y0"];})]).nice();
+        //     xScale.domain([0, 100]).nice();
+        //     yScale.domain(layers[0].map(function(d) { return d.x; }));
+        //
+        //
+        //     d3.max(layers, function(d) {return d[0]["y"] + d[0]["y0"];})
+        //
+        //     //----------------------------------------------------
+        //
+        //     leftBarGroup.selectAll('.bar.left')
+        //     .data(layers)
+        //     .enter().append('rect')
+        //     .attr('class', 'bar left')
+        //         .attr("y", function(d) { return yScale(d.x); })
+        //         .attr("x", function(d) {return xScale(d.y0); })
+        //         .attr("width", function(d) {return xScale(d.y); })
+        //         .attr("height", yScale.rangeBand())
+        //     // .attr('x', 0)
+        //     // .attr('y', function(d) { return yScale(d.type); })
+        //     // .attr('width', function(d) { return xScale(d.male); })
+        //     // .attr('height', yScale.rangeBand())
+        //     .on("mouseover", function (d) {
+        //
+        //         tooltipCancerPlot.transition()
+        //             .duration(200)
+        //             .style("opacity",0.9);
+        //
+        //         tooltipCancerPlot.html("Males: " + d.male )
+        //             .style("left", (d3.event.pageX) + "px")
+        //             .style("top", (d3.event.pageY+18) + "px");
+        //     })
+        //     .on("mouseout", function(d) {
+        //         tooltipCancerPlot.transition()
+        //             .duration(500)
+        //             .style("opacity", 0);
+        //
+        //     });
+        //
+        // rightBarGroup.selectAll('.bar.right')
+        //     .data(cancerCount)
+        //     .enter().append('rect')
+        //     .attr('class', 'bar right')
+        //     .attr('x', 0)
+        //     .attr('y', function(d) { return yScale(d.type); })
+        //     .attr('width', function(d) { return xScale(d.female); })
+        //     .attr('height', yScale.rangeBand())
+        //     .on("mouseover", function (d) {
+        //
+        //         tooltipCancerPlot.transition()
+        //             .duration(200)
+        //             .style("opacity",0.9);
+        //
+        //         tooltipCancerPlot.html("Females: " + d.female )
+        //             .style("left", (d3.event.pageX) + "px")
+        //             .style("top", (d3.event.pageY+18) + "px");
+        //     })
+        //     .on("mouseout", function(d) {
+        //         tooltipCancerPlot.transition()
+        //             .duration(500)
+        //             .style("opacity", 0);
+        //
+        //     });
+        //
+        //
+        // function translation(x,y) {
+        //     return 'translate(' + x + ',' + y + ')';
+        // }
+        //
     })
 
 }
@@ -1940,9 +1809,9 @@ function cancerPyramindChart(zipSelect, container) {
 function raceChart(zipSelect,container) {
 
     // if(iscompare == 0){
-        d3.select(container).selectAll('.racePlot').remove();
-        d3.selectAll('.raceHeading').remove();
-        d3.selectAll('.raceLabel').remove();
+    d3.select(container).selectAll('.racePlot').remove();
+    d3.selectAll('.raceHeading').remove();
+    d3.selectAll('.raceLabel').remove();
     // }
 
 
@@ -1983,8 +1852,8 @@ function raceChart(zipSelect,container) {
 
     var color = d3.scale.ordinal()
         .range(["#80b1d3","#8dd3c7", "#bebada", "#fb8072", "#b3de69", "#fdb462"]);
-        // .range(["#fbb4ae", "#b3cde3", "#ccebc5", "#decbe4", "#fed9a6", "#ffffcc"]);
-        // .range(["#c7001e", "#f6a580", "#cccccc", "#92c6db", "#086fad", "#99000d"]);
+    // .range(["#fbb4ae", "#b3cde3", "#ccebc5", "#decbe4", "#fed9a6", "#ffffcc"]);
+    // .range(["#c7001e", "#f6a580", "#cccccc", "#92c6db", "#086fad", "#99000d"]);
 
 
     // var yAxis = d3.svg.axis()
@@ -2035,94 +1904,94 @@ function raceChart(zipSelect,container) {
             });
         }));
 
-    console.log(layers);
+        console.log(layers);
 
-    color.domain(segmentsStacked);
+        color.domain(segmentsStacked);
 
         var tooltipRacePlot = d3.select("#tooltip-race-plot")
             .attr("class", "tooltip")
             .style("opacity", 0);
 
-    // xScale.domain([0, d3.max(layers, function(d) {return d[0]["y"] + d[0]["y0"];})]).nice();
-    yScale.domain([0, 100]).nice();
-    xScale.domain(layers[0].map(function(d) { return d.x; }));
+        // xScale.domain([0, d3.max(layers, function(d) {return d[0]["y"] + d[0]["y0"];})]).nice();
+        yScale.domain([0, 100]).nice();
+        xScale.domain(layers[0].map(function(d) { return d.x; }));
 
 
-       d3.max(layers, function(d) {return d[0]["y"] + d[0]["y0"];})
+        d3.max(layers, function(d) {return d[0]["y"] + d[0]["y0"];})
 
 
         var layer = raceChart.selectAll(".layers")
-        .data(layers)
-        .enter().append("g")
-        .attr("class", "layer")
-        .style("fill", function(d,i) {
+            .data(layers)
+            .enter().append("g")
+            .attr("class", "layer")
+            .style("fill", function(d,i) {
                 return color(i);
-        });
+            });
         // .attr("transform", "translate(0,0)");
 
-    layer.selectAll("rect")
-        .data(function(d) { return d; })
-        .enter().append("rect")
-        .attr("x", function(d) { return xScale(d.x); })
-        .attr("y", function(d) {return yScale(d.y0 ); })
-        .attr("height", function(d) {return yScale(d.y + d.y0); })
-        .attr("width", xScale.rangeBand())
-        .on("mouseover", function (d) {
+        layer.selectAll("rect")
+            .data(function(d) { return d; })
+            .enter().append("rect")
+            .attr("x", function(d) { return xScale(d.x); })
+            .attr("y", function(d) {return yScale(d.y0 ); })
+            .attr("height", function(d) {return yScale(d.y + d.y0); })
+            .attr("width", xScale.rangeBand())
+            .on("mouseover", function (d) {
 
-            tooltipRacePlot.transition()
-                .duration(200)
-                .style("opacity",0.9);
+                tooltipRacePlot.transition()
+                    .duration(200)
+                    .style("opacity",0.9);
                 var raceTooltipValue = (d["y"] * (total/100)).toFixed(0);
                 // var raceTooltipValue = Math.round((d["y"] * (total/100)).toFixed(0) / 1000) *1000;
-            tooltipRacePlot.html(d["component"] + " : " + raceTooltipValue )
-                .style("left", (d3.event.pageX-30) + "px")
-                .style("top", (d3.event.pageY+18) + "px");
-        })
-        .on("mouseout", function(d) {
-            tooltipRacePlot.transition()
-                .duration(500)
-                .style("opacity", 0);
+                tooltipRacePlot.html(d["component"] + " : " + raceTooltipValue )
+                    .style("left", (d3.event.pageX-30) + "px")
+                    .style("top", (d3.event.pageY+18) + "px");
+            })
+            .on("mouseout", function(d) {
+                tooltipRacePlot.transition()
+                    .duration(500)
+                    .style("opacity", 0);
 
-        });;
+            });;
 
-    // raceChart.append("g")
-    //     .attr("class","x axis")
-    //     .attr("transform", "translate(0,0)")
-    //     .attr("opacity", "0.5")
-    //     .call(yAxis);
-    //
-    //
-    // raceChart.append("g")
-    //     .attr("class", "axis axis--y")
-    //     .attr("transform", "translate(" + 0 + ",0)")
-    //     .call(xAxis);
+        // raceChart.append("g")
+        //     .attr("class","x axis")
+        //     .attr("transform", "translate(0,0)")
+        //     .attr("opacity", "0.5")
+        //     .call(yAxis);
+        //
+        //
+        // raceChart.append("g")
+        //     .attr("class", "axis axis--y")
+        //     .attr("transform", "translate(" + 0 + ",0)")
+        //     .call(xAxis);
 
 
         var dataL = 0;
         var offset = 40;
 
-    var raceLegend = d3.select('#raceLabel1')
-        .append('svg')
-        .attr('width', $('#raceLabel1').width())
-        .attr('height',$('#raceLabel1').height())
-        .attr('class','raceLabel')
-        .append("g")
-        .attr("transform", "translate(25," + margin.top + ")")
-        .selectAll("g")
-        .data(segmentsStacked)
-        .enter().append("g")
-        .attr("transform", function(d, i) {
-            if (i === 0) {
-                dataL = d.length + offset;
-                return "translate(5,0)"
-            } else {
-                var newdataL = dataL;
-                // console.log(d.length)
-                dataL +=  d.length + offset;
-                return "translate(5," + (newdataL) + ")"
-            }
+        var raceLegend = d3.select('#raceLabel1')
+            .append('svg')
+            .attr('width', $('#raceLabel1').width())
+            .attr('height',$('#raceLabel1').height())
+            .attr('class','raceLabel')
+            .append("g")
+            .attr("transform", "translate(25," + margin.top + ")")
+            .selectAll("g")
+            .data(segmentsStacked)
+            .enter().append("g")
+            .attr("transform", function(d, i) {
+                if (i === 0) {
+                    dataL = d.length + offset;
+                    return "translate(5,0)"
+                } else {
+                    var newdataL = dataL;
+                    // console.log(d.length)
+                    dataL +=  d.length + offset;
+                    return "translate(5," + (newdataL) + ")"
+                }
 
-        });
+            });
 
         // Create rectangles for each legend g
         // Pass rect index to Z color ordinal scale
@@ -2173,23 +2042,24 @@ function compareZip(){
     // console.log(zipSelected)
     // console.log(zipSelected2)
 
-    if(zipSelected == ""){
+    // if(zipSelected == ""){
+    //     //
+    //     // }
+    //     // else {
+    //     //     zipHeading(zipSelected, '#zipHeading1');
+    //     //     insuranceChart(zipSelected, '#insurancePlot1');
+    //     //     populationNumber(zipSelected, '#totalPopulation1');
+    //     //     incomeChart(zipSelected, '#incomePlot1');
+    //     //     educationChart(zipSelected, '#educationrPlot1');
+    //     //     groceryNumber(zipSelected, '#groceryNumber1');
+    //     //     // d3.queue().await(cancerPyramindChart(zipSelected, '#cancerPlots1'));
+    //     //     cancerPyramindChart(zipSelected, '#cancerPlots1');
+    //     //     raceChart(zipSelected, '#racePlot1');
+    //     //
+    //     //     lastChanged = 1;
+    //     // }
 
-    }
-    else {
-        zipHeading(zipSelected, '#zipHeading1');
-        insuranceChart(zipSelected, '#insurancePlot1');
-        populationNumber(zipSelected, '#totalPopulation1');
-        incomeChart(zipSelected, '#incomePlot1');
-        educationChart(zipSelected, '#educationrPlot1');
-        groceryNumber(zipSelected, '#groceryNumber1');
-        cancerPyramindChart(zipSelected, '#cancerPlots1');
-        raceChart(zipSelected, '#racePlot1');
-
-        lastChanged = 1;
-    }
-
-
+    lastChanged = 1;
 }
 
 
@@ -2252,7 +2122,7 @@ function overview(){
 //View Heading
 function zipHeading(zipSelect, container){
     // if(iscompare == 0){
-        d3.select(container).selectAll('.zipHeading').remove();
+    d3.select(container).selectAll('.zipHeading').remove();
     // }
 
     d3.select(container)

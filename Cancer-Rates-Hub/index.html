@@ -9,8 +9,9 @@
     <meta name="author" content="">
 
 
-    <title>Cancer Rates</title>
+    <title>Cancer Disparities</title>
     <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="https://d3js.org/d3-queue.v3.min.js"></script>
     <link rel="stylesheet" href="leaflet/leaflet.css" />
     <script src="leaflet/leaflet.js"></script>
 
@@ -37,7 +38,7 @@
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top" id="header-bar">
 
         <div class="navbar-brand mr-1" id="heading">
-            <b>Cancer Rates</b>
+            <b>Cancer Disparities</b>
         </div>
 
         <div id="cancerFilter"></div>
@@ -78,6 +79,12 @@
                     <span id='education-side-bar'></span>
                 </a>
             </li>
+<!--            <li class="nav-item active" style="margin-top: 20em">-->
+<!--                <a class="nav-link" >-->
+<!--                    <i class="fas fa-info-circle"></i>-->
+<!--                    <span id='about-side-bar'></span>-->
+<!--                </a>-->
+<!--            </li>-->
         </ul>
 <!--        margin-top: 14em;-->
 <!--        list-style-type: none;-->
@@ -89,7 +96,7 @@
 
             <div class="container-fluid" id = "grid-container">
                 <div id = "map-panel" class = "grid-item">
-                   <div id="map-heading"><h2>Map of Chicago</h2></div>
+                   <div id="map-heading"><h2>Cancer Disparities in Chicago</h2></div>
 <!--                    <div style="margin-left: 150px; margin-top: 2px;">-->
 <!--                        <span class="leftlabel">0</span>-->
 <!--                        <input id ="range1" type="range" min="0" max="100" value="100" style="width: 400px; margin-right: 10px;"/>-->
@@ -97,9 +104,16 @@
 <!--                    </div>-->
 
                     <div id="sidebar-right">
-                            <div class="align-middle" id="grocery-Slider">
+                            <div class="align-middle" id="cancer-Slider">
                                 <div class="slidecontainer">
                                     <p class="sidebar-slider-heading">Opacity</p>
+                                    <p class="slider-name text">Cancer</p>
+                                    <input type="range" min="10" max="100" value="100" class="slider" id="cancer-range" >
+                                    <span id="cancer-slider-number" class="text"> </span>
+                                </div>
+                            </div>
+                            <div class="align-middle" id="grocery-Slider">
+                                <div class="slidecontainer">
                                     <p class="slider-name text">Grocery</p>
                                     <input type="range" min="1" max="100" value="100" class="slider" id="grocery-range" >
                                     <span id="grocery-slider-number" class="text"> </span>
