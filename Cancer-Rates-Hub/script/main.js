@@ -254,7 +254,8 @@ d3.json("map.geojson", function(json) {
 
 
     //Create SVG element
-    var svg = d3.select(".map");
+    var svg = d3.select(".map")
+        .attr("height", height);
 
     //Create a tooltip
     var tooltip = d3.select("#tooltip-map")
