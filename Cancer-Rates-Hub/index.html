@@ -24,10 +24,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/main.css">
 
-    <!-- icon font link -->
-    <!--  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">-->
-
-    <!--SCRIPTS-->
+     <!--SCRIPTS-->
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="script/sb-admin.min.js"></script>
@@ -61,7 +58,13 @@
 
     <!-- Sidebar -->
         <ul class="sidebar navbar-nav toggled" id="sidebar" >
-            <li class="nav-item active" style="margin-top: 6em">
+            <li class="nav-item active" style="margin-top: 10em">
+                <a class="nav-link" >
+                    <i class="fas fa-graduation-cap"></i>
+                    <span id='education-side-bar'></span>
+                </a>
+            </li>
+            <li class="nav-item active" >
                 <a class="nav-link" >
                     <i class="fas fa-shopping-cart" ></i>
                     <span id='grocery-side-bar'></span>
@@ -73,35 +76,14 @@
                     <span id='income-side-bar'></span>
                 </a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" >
-                    <i class="fas fa-graduation-cap"></i>
-                    <span id='education-side-bar'></span>
-                </a>
-            </li>
-<!--            <li class="nav-item active" style="margin-top: 20em">-->
-<!--                <a class="nav-link" >-->
-<!--                    <i class="fas fa-info-circle"></i>-->
-<!--                    <span id='about-side-bar'></span>-->
-<!--                </a>-->
-<!--            </li>-->
         </ul>
-<!--        margin-top: 14em;-->
-<!--        list-style-type: none;-->
-<!--        padding: 0;-->
-<!--        text-align: center;-->
-
 
         <div id="content-wrapper">
 
             <div class="container-fluid" id = "grid-container">
                 <div id = "map-panel" class = "grid-item">
                    <div id="map-heading"><h2>Cancer Disparities in Chicago</h2></div>
-<!--                    <div style="margin-left: 150px; margin-top: 2px;">-->
-<!--                        <span class="leftlabel">0</span>-->
-<!--                        <input id ="range1" type="range" min="0" max="100" value="100" style="width: 400px; margin-right: 10px;"/>-->
-<!--                        <span class="rightlabel">100</span>-->
-<!--                    </div>-->
+
 
                     <div id="sidebar-right">
                             <div class="align-middle" id="cancer-Slider">
@@ -143,7 +125,7 @@
 
                 </div>
 
-<!--                <div id="map-leaf"></div>-->
+
 
                 <div id = "details-panel" class = "grid-item">
                     <div class="zip_heading" id="zipHeading1" ></div>
@@ -152,7 +134,7 @@
                         <div id="tooltip-cancer-plot"></div>
                     </div>
                     <div class="cancer-plot" id="cancerTypes1"></div>
-<!--                    <div class="income-plot" id="incomeHeading1"></div>-->
+
                     <div class="income-plot" id="incomePlot1">
                         <div id="tooltip-income-plot"></div>
                     </div>
@@ -163,7 +145,7 @@
                         <div id="tooltip-race-plot"></div>
                     </div>
                     <div class="race-plot" id="raceLabel1"></div>
-<!--                    <div class="education-plot" id="educationPlot1"></div>-->
+
 
                     <div class="zip_heading" id="zipHeading2"></div>
                     <div class="total-population" id="totalPopulation2"></div>
@@ -174,66 +156,9 @@
                     <div class="grocery-number" id="groceryNumber2"></div>
                     <div class="insurance-plot" id="insurancePlot2"></div>
                     <div class="race-plot" id="racePlot2"></div>
-<!--                    <div class="education-plot" id="educationPlot2"></div>-->
+
 
                 </div>
-
-                <!-- <div class="card mb-3" style="border-radius: 7px; border-color: #C0C0C0;">
-                    <div class="card-header">
-                        Chicago
-                    </div> -->
-                <!--
-                <div class="card-body">
-                    <div class="row">
-                        <div><br>
-
-                            <svg class="map"></svg>
-                            <div id="tooltip"></div>
-
-                        </div>
-
-                        <div class="col-lg">
-                            <div><br></div>
-                            <div>
-                            <span id="option" >
-                                        <input class = "compareButton" name="compare "
-                                               type="button"
-                                               value="Compare"
-                                               onclick="compareZip()" style="border-radius: 8px;   "/></span>
-
-                                <span id="option">
-                                        <input name="overview "
-                                               type="button"
-                                               value="Reset"
-                                               onclick="overview()" style="border-radius: 8px;" /></span></div>
-
-
-                            <div><br></div>
-                            <div>
-
-
-                                <div id="zipHead" style="margin: auto;">
-
-                                    <div id="zipHeading"></div>
-                                </div>
-                                <div id="insurance" style="margin: auto;">
-
-                                    <div id="insuranceChart"></div>
-                                </div>
-                                <div id="income" style="margin: auto;">
-
-                                    <span id="incomeChart"></span>
-                                </div>
-                                <div id="education" style="margin: auto;">
-
-                                    <div id="waffleChart"></div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>  --><!-- class=card-body -->
 
             </div> <!-- class=container-fluid -->
 

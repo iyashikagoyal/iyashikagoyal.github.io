@@ -1,21 +1,13 @@
 /*flexbox style*/
 
-
 :root {
     --gradient: linear-gradient(to bottom, #b8b8b8 0%, #858585 100%);
     --gradient-light: linear-gradient(to bottom, #b4e8f8 0%, #cbd3f0 100%);
 }
 
-/*#header-bar{*/
-
-/*    background: #00416A;  !* fallback for old browsers *!*/
-/*    background: -webkit-linear-gradient(to left, #E4E5E6, #00416A);  !* Chrome 10-25, Safari 5.1-6 *!*/
-/*    background: linear-gradient(to left, #E4E5E6, #00416A); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
-/*}*/
 #grid-container {
     display: grid;
     grid-template-columns: 50% 50%;
-    /*grid-gap: 10px;*/
     background-color: #f7f7f7;
     height: 100%;
     padding: 0;
@@ -71,11 +63,6 @@
     grid-column: 1/2;
     grid-row: 3/4;
 }
-
-/*#incomeHeading1{*/
-/*    grid-column: 1/5;*/
-/*    grid-row: 3/4;*/
-/*}*/
 
 #incomePlot1{
     grid-column: 1/2;
@@ -272,15 +259,6 @@
     pointer-events: none;
 }
 
-/*.zipHeading{*/
-/*    text-align: center;*/
-/*}*/
-
-/*chart styles in detail panel*/
-
-/* {*/
-/*    border: 1px solid #ccc;*/
-/*}*/
 
 .axis line,
 .axis path {
@@ -312,15 +290,4 @@
     display: block;
     margin: auto;
 }
-
-
-
-/*.clicked{*/
-/*    fill : white;*/
-/*}*/
-
-/*#option{*/
-/*    border-radius: 2px;*/
-/*}*/
-
 
